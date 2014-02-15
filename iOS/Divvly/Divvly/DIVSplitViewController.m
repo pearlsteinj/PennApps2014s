@@ -81,42 +81,59 @@
 }
 
 -(IBAction)addPeople:(id)sender{
-    
-    NSLog([[[[sender superview] superview] superview]description]);
     UITableViewCell *cell = (UITableViewCell *)[[[sender superview] superview] superview];
-    NSLog([NSString stringWithFormat:@"%d",[[_tableView indexPathForCell:cell] row]]);
-    
+    if (!editing_row) {
+        editing_row = true;
+    }
+    else{
+        editing_row = false;
+    }
+    NSArray *temp = [[NSArray alloc]initWithObjects:[_tableView indexPathForCell:cell], nil];
+    [_tableView reloadRowsAtIndexPaths:temp withRowAnimation:UITableViewRowAnimationLeft];
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *MyIdentifier = @"cell";
+    UITableView *cell;
+    if(!editing_row){
+        static NSString *MyIdentifier = @"cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+        cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     
-    if (cell == nil)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+        if (cell == nil)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:MyIdentifier];
+        }
+    
+        UIButton *btn = (UIButton*)[cell viewWithTag:0];
+        UILabel *description = (UILabel*)[cell viewWithTag:1];
+        UILabel *cost = (UILabel*)[cell viewWithTag:2];
+    
+        description.text = [[_entries objectAtIndex:[indexPath row]] objectForKey:@"description"];
+        [description setFont:[UIFont systemFontOfSize:14]];
+        description.backgroundColor = [UIColor clearColor];
+        [cell addSubview:description];
+    
+        cost.text = [[[_entries objectAtIndex:[indexPath row]] objectForKey:@"cost"] stringValue];
+        cost.textAlignment = UITextAlignmentRight;
+        [cost setFont:[UIFont systemFontOfSize:14]];
+        cost.backgroundColor = [UIColor clearColor];
+        [cell addSubview:cost];
     }
-    
-    UIButton *btn = (UIButton*)[cell viewWithTag:0];
-    UILabel *description = (UILabel*)[cell viewWithTag:1];
-    UILabel *cost = (UILabel*)[cell viewWithTag:2];
-    
-    description.text = [[_entries objectAtIndex:[indexPath row]] objectForKey:@"description"];
-    [description setFont:[UIFont systemFontOfSize:14]];
-    description.backgroundColor = [UIColor clearColor];
-    [cell addSubview:description];
-    
-    cost.text = [[[_entries objectAtIndex:[indexPath row]] objectForKey:@"cost"] stringValue];
-    cost.textAlignment = UITextAlignmentRight;
-    [cost setFont:[UIFont systemFontOfSize:14]];
-    cost.backgroundColor = [UIColor clearColor];
-    [cell addSubview:cost];
-
-    
+    else {
+        static NSString *MyIdentifier = @"search";
+        cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+        if (cell == nil)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                          reuseIdentifier:MyIdentifier];
+        }
+        UISearchBar *bar = (UISearchBar*)[cell viewWithTag:5];
+        bar.placeholder = @"HEllo";
+    }
      
     return cell;
 }
@@ -125,7 +142,6 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     NSString *cellText = cell.textLabel.text;
 }
-
 
 - (void)didReceiveMemoryWarning
 {

@@ -331,11 +331,7 @@
 		036E811B18AF05860041C37F /* Divvly */ = {
 			isa = PBXGroup;
 			children = (
-				0357ED8318AFB9F6000B9C2A /* image.png */,
-				588E2D6D18AFA10D00108480 /* photo.PNG */,
-				588E2D6918AF926900108480 /* image_sample.jpg */,
 				036E812418AF05860041C37F /* DIVAppDelegate.h */,
-				588E2D6B18AF95B900108480 /* image_2.png */,
 				036E812518AF05860041C37F /* DIVAppDelegate.m */,
 				036E812718AF05860041C37F /* Main.storyboard */,
 				0320524D18AF3AB8009BB045 /* DIVLoginViewController.h */,
@@ -355,6 +351,10 @@
 		036E811C18AF05860041C37F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0357ED8318AFB9F6000B9C2A /* image.png */,
+				588E2D6D18AFA10D00108480 /* photo.PNG */,
+				588E2D6918AF926900108480 /* image_sample.jpg */,
+				588E2D6B18AF95B900108480 /* image_2.png */,
 				038F454218AF757800B2878F /* photo-capture.png */,
 				588E2D5E18AF64DF00108480 /* button.png */,
 				588E2D5F18AF64DF00108480 /* login.html */,

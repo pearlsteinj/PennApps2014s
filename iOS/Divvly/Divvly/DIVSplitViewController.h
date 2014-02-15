@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DIVSplitViewController : UIViewController
+@interface DIVSplitViewController : UIViewController{
+    bool editing_row;
+}
 @property (nonatomic,retain) NSString *textToParse;
 @property (strong, nonatomic) IBOutlet UILabel *label;
 @property (nonatomic,retain) NSMutableArray *entries;
