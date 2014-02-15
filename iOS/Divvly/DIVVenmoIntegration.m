@@ -39,6 +39,7 @@
     [NSURLConnection connectionWithRequest:_request2 delegate:self];
 }
 -(void)pullPictures{
+    NSLog(@"here");
     _friendData = [[NSMutableArray alloc]init];
     for(id entry in _friendsResponse[@"data"]){
         NSMutableDictionary *temp = [[NSMutableDictionary alloc]init];
@@ -48,6 +49,7 @@
         [temp setObject:name forKey:@"name"];
         [temp setObject:venmo_id forKey:@"id"];
         [temp setObject:pic_url forKey:@"pic_url"];
+        NSLog(@"Here: %@",name);
         [_friendData addObject:temp];
     }
     //To be moved to a seperate thread

@@ -52,16 +52,20 @@
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     [prefs synchronize];
     
-    if ([[prefs objectForKey:@"token"] isEqualToString:@""]){
+    
+    NSLog([prefs objectForKey:@"token"]);
+    //if (![prefs objectForKey:@"token"] || [[prefs objectForKey:@"token"] isEqualToString:@""]){
         [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"login" ofType:@"html"]isDirectory:NO]]];
         _webView.delegate = self;
-    }
+    //}
+    /*
     else{
         DIVAppDelegate *delegate = (DIVAppDelegate*)[[UIApplication sharedApplication]delegate];
         [delegate.venmo setUserToken:[prefs objectForKey:@"token"]];
+        
         [self performSegueWithIdentifier:@"loggedIn" sender:self];
     }
-    
+    */
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{

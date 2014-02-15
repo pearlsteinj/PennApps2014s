@@ -16,5 +16,6 @@
 @property (nonatomic,retain) NSMutableArray *entries;
 @property (nonatomic,retain) NSString *restaurant_name;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic,retain) NSMutableArray *friendsArray;
 
 @end

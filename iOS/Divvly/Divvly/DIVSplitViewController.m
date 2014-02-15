@@ -8,6 +8,9 @@
 
 #import "DIVSplitViewController.h"
 #import "stdio.h"
+#import "DIVAppDelegate.h"
+#import <QuartzCore/QuartzCore.h>
+
 @interface DIVSplitViewController ()
 
 @end
@@ -25,6 +28,14 @@
 
 - (void)viewDidLoad
 {
+    
+    DIVAppDelegate *delegate = (DIVAppDelegate*)[[UIApplication sharedApplication]delegate];
+  
+    _friendsArray = delegate.venmo.friendData;
+    
+//    NSLog([_friendsArray description]);
+    
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     _entries = [[NSMutableArray alloc]init];
@@ -142,6 +153,29 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     NSString *cellText = cell.textLabel.text;
 }
+
+
+- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
+    return _friendsArray.count;
+}
+- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
+    return 1;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"collCell" forIndexPath:indexPath];
+    UIImageView *img = (UIImageView*)[cell viewWithTag:4];
+    img.image = [[_friendsArray objectAtIndex:indexPath.row] objectForKey:@"image"];
+    img.clipsToBounds = YES;
+    img.layer.cornerRadius = 23.0f;
+    
+    img.backgroundColor = [UIColor clearColor];
+    
+    cell.backgroundColor = [UIColor clearColor];
+    return cell;
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {
