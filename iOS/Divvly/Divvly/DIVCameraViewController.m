@@ -32,6 +32,14 @@
 
     DIVAppDelegate *delegate = (DIVAppDelegate*)[[UIApplication sharedApplication]delegate];
     NSMutableArray *friends = delegate.venmo.friendData;
+    
+    
+    
+    Tesseract* tesseract = [[Tesseract alloc] initWithDataPath:@"tessdata" language:@"eng"];
+    [tesseract setImage:[UIImage imageNamed:@"image_sample.jpg"]];
+    [tesseract recognize];
+    
+    NSLog(@"%@", [tesseract recognizedText]);
 
 }
 -(void)viewDidAppear:(BOOL)animated{

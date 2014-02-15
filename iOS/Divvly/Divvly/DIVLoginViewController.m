@@ -24,13 +24,21 @@
     return self;
 }
 
+
+
 - (void)viewDidLoad
 {
+
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
     [self login];
 
 }
+
+
+
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
 }
@@ -40,10 +48,8 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)login{
+    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"login" ofType:@"html"]isDirectory:NO]]];
     _webView.delegate = self;
-    NSURL *url = [[NSURL alloc]initWithString:@"http://auth.divvly.com"];
-    NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url];
-    [_webView loadRequest:request];
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{

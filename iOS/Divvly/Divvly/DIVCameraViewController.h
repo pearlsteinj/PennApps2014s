@@ -9,7 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface DIVCameraViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UIImageView *image;
-- (IBAction)button:(id)sender;
 
 @end
