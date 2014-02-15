@@ -60,6 +60,8 @@
     layer.frame = self.view.bounds;
     layer.videoGravity = AVLayerVideoGravityResizeAspectFill;
     [_cameraView.layer addSublayer: layer];
+    _overlay = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"photo-capture.png"]];
+    [_cameraView addSubview:_overlay];
     [session startRunning];
     
 }
@@ -69,17 +71,27 @@
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-
+    
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(takePicture)];
+    [self.view addGestureRecognizer:recognizer];
+    /*
     DIVAppDelegate *delegate = (DIVAppDelegate*)[[UIApplication sharedApplication]delegate];
-    NSMutableArray *friends = delegate.venmo.friendData;
+    NSMutableArray *friends = delegate.venmo.friendData;*/
     
-    Tesseract* tesseract = [[Tesseract alloc] initWithDataPath:@"tessdata" language:@"eng"];
-    [tesseract setImage:[UIImage imageNamed:@"image_sample.jpg"]];
-    [tesseract recognize];
+   // Tesseract *tesseract = [[Tesseract alloc] initWithDataPath:@"tessdata" language:@"eng"];
     
-    NSLog(@"%@", [tesseract recognizedText]);
+    //Get image and put it here
+    
+    //[tesseract setImage:[UIImage imageNamed:@"image_sample.jpg"]];
+    //[tesseract recognize];
+    
+  //  NSLog(@"%@", [tesseract recognizedText]);
     
     [self startCameraSession];
+
+}
+-(void)takePicture{
+
 
 }
 -(void)viewDidAppear:(BOOL)animated{

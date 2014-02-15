@@ -18,5 +18,6 @@
 }
 
 @property (weak, nonatomic) IBOutlet UIView *cameraView;
+@property (strong, nonatomic) IBOutlet UIImageView *overlay;
 
 @end
