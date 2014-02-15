@@ -10,4 +10,11 @@
 
 @interface DIVVenmoIntegration : NSObject
 
+//Properties for Venmo Integration
+@property (nonatomic,retain) NSString *token;
+
+
+//Possible Method Endpoints
+-(BOOL)loginWithUser:(NSString*)user andPass:(NSString*)pass;
+
 @end
