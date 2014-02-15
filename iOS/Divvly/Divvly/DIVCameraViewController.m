@@ -13,11 +13,149 @@
 #import <QuartzCore/QuartzCore.h>
 #import <ImageIO/CGImageProperties.h>
 #import "DIVOCR.h"
+#import <AssetsLibrary/ALAsset.h>
+#import <AssetsLibrary/ALAssetRepresentation.h>
+#import <ImageIO/CGImageSource.h>
+#import <ImageIO/CGImageProperties.h>
+#import <MobileCoreServices/UTCoreTypes.h>
+
+
 @interface DIVCameraViewController ()
 
 @end
 
 @implementation DIVCameraViewController
+
+
+- (BOOL) startCameraControllerFromViewController: (UIViewController*) controller
+
+                                   usingDelegate: (id <UIImagePickerControllerDelegate,
+                                                   
+                                                   UINavigationControllerDelegate>) delegate {
+    
+    
+    if (([UIImagePickerController isSourceTypeAvailable:
+          
+          UIImagePickerControllerSourceTypeCamera] == NO)
+        
+        || (delegate == nil)
+        
+        || (controller == nil))
+        
+        return NO;
+    
+    UIImagePickerController *cameraUI = [[UIImagePickerController alloc] init];
+    
+    cameraUI.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    // Displays a control that allows the user to choose picture or
+    
+    // movie capture, if both are available:
+    
+    
+    cameraUI.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeImage, nil];
+    
+    // Hides the controls for moving & scaling pictures, or for
+    
+    // trimming movies. To instead show the controls, use YES.
+    
+    cameraUI.allowsEditing = NO;
+    
+    cameraUI.delegate = delegate;
+    
+    [controller presentModalViewController: cameraUI animated: YES];
+    
+    return YES;
+    
+}
+
+- (IBAction) showCameraUI {
+    
+    [self startCameraControllerFromViewController: self
+                                    usingDelegate: self];
+    
+}
+
+
+
+- (void) imagePickerController: (UIImagePickerController *) picker
+
+ didFinishPickingMediaWithInfo: (NSDictionary *) info {
+    
+    NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
+    UIImage *originalImage, *editedImage, *imageToSave;
+    
+    // Handle a still image capture
+    
+    if (CFStringCompare ((CFStringRef) mediaType, kUTTypeImage, 0)
+        
+        == kCFCompareEqualTo) {
+        
+        
+        
+        editedImage = (UIImage *) [info objectForKey:
+                                   UIImagePickerControllerEditedImage];
+        
+        originalImage = (UIImage *) [info objectForKey:
+                                     UIImagePickerControllerOriginalImage];
+        
+        
+        
+        if (editedImage) {
+            
+            imageToSave = editedImage;
+            
+        } else {
+            
+            imageToSave = originalImage;
+            
+        }
+        
+        UIImage *src_img = imageToSave;
+        
+        CGColorSpaceRef d_colorSpace = CGColorSpaceCreateDeviceRGB();
+        size_t d_bytesPerRow = src_img.size.width * 4;
+        unsigned char * imgData = (unsigned char*)malloc(src_img.size.height*d_bytesPerRow);
+        CGContextRef context =  CGBitmapContextCreate(imgData, src_img.size.width,
+                                                      src_img.size.height,
+                                                      8, d_bytesPerRow,
+                                                      d_colorSpace,
+                                                      kCGImageAlphaNoneSkipFirst);
+        
+        UIGraphicsPushContext(context);
+        // These next two lines 'flip' the drawing so it doesn't appear upside-down.
+        CGContextTranslateCTM(context, 0.0, src_img.size.height);
+        CGContextScaleCTM(context, 1.0, -1.0);
+        // Use UIImage's drawInRect: instead of the CGContextDrawImage function, otherwise you'll have issues when the source image is in portrait orientation.
+        [src_img drawInRect:CGRectMake(0.0, 0.0, src_img.size.width, src_img.size.height)];
+        UIGraphicsPopContext();
+        
+        
+        // After we've processed the raw data, turn it back into a UIImage instance.
+        CGImageRef new_img = CGBitmapContextCreateImage(context);
+        UIImage * convertedImage = [[UIImage alloc] initWithCGImage:
+                                    new_img];
+        
+        CGImageRelease(new_img);
+        CGContextRelease(context);
+        CGColorSpaceRelease(d_colorSpace);
+        free(imgData);
+        
+        _image = convertedImage;
+        Tesseract *tesseract = [[Tesseract alloc] initWithDataPath:@"tessdata" language:@"eng"];
+        //[tesseract setVariableValue:@"1234567890" forKey:@"tessedit_char_whitelist"];
+        [tesseract setImage:_image];
+        [tesseract recognize];
+        
+        NSLog([tesseract recognizedText]);
+        
+        
+    }
+    
+    [picker dismissModalViewControllerAnimated: YES];
+    
+    
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,117 +167,6 @@
 }
 
 
--(void)startCameraSession
-{
-    AVCaptureDevice *inputDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    AVCaptureDeviceInput *captureInput = [AVCaptureDeviceInput deviceInputWithDevice:inputDevice error:nil];
-    if (!captureInput) {
-        return;
-    }
-    captureOutput = [[AVCaptureVideoDataOutput alloc] init];
-    [captureOutput setSampleBufferDelegate:self queue:dispatch_get_main_queue()];
-    NSString* key = (NSString*)kCVPixelBufferPixelFormatTypeKey;
-    NSNumber* value = [NSNumber numberWithUnsignedInt:kCVPixelFormatType_32BGRA];
-    NSDictionary* videoSettings = [NSDictionary dictionaryWithObject:value forKey:key];
-    [captureOutput setVideoSettings:videoSettings];
-    session = [[AVCaptureSession alloc] init];
-    NSString* preset = 0;
-    if (!preset) {
-        preset = AVCaptureSessionPresetMedium;
-    }
-    session.sessionPreset = preset;
-    if ([session canAddInput:captureInput]) {
-        [session addInput:captureInput];
-    }
-    if ([session canAddOutput:captureOutput]) {
-        [session addOutput:captureOutput];
-    }
-    
-    if (!layer) {
-        layer = [AVCaptureVideoPreviewLayer layerWithSession:session];
-    }
-    
-    layer.frame = self.view.bounds;
-    layer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-    [_cameraView.layer addSublayer: layer];
-    
-    _overlay = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"photo-capture.png"]];
-    [_cameraView addSubview:_overlay];
-    
-    session.sessionPreset = AVCaptureSessionPresetMedium;
-    //NSError *error = nil;
-    //if (!input) {
-    // Handle the error appropriately.
-    //  NSLog(@"ERROR: trying to open camera: %@", error);
-    //}
-    
-    //[session addInput:input];
-    
-    //stillImageOutput is a global variable in .h file: "AVCaptureStillImageOutput *stillImageOutput;"
-    
-    /*
-    stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
-    NSDictionary *outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys: AVVideoCodecJPEG, AVVideoCodecKey, nil];
-    [stillImageOutput setOutputSettings:outputSettings];
-    
-    [session addOutput:stillImageOutput];
-    */
-    [session startRunning];
-    
-}
-
-- (UIImage *) imageFromSampleBuffer:(CMSampleBufferRef) sampleBuffer
-{
-    //NSLog(@"imageFromSampleBuffer: called");
-    // Get a CMSampleBuffer's Core Video image buffer for the media data
-    CVImageBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
-    // Lock the base address of the pixel buffer
-    CVPixelBufferLockBaseAddress(imageBuffer, 0);
-    
-    // Get the number of bytes per row for the pixel buffer
-    void *baseAddress = CVPixelBufferGetBaseAddress(imageBuffer);
-    
-    // Get the number of bytes per row for the pixel buffer
-    size_t bytesPerRow = CVPixelBufferGetBytesPerRow(imageBuffer);
-    // Get the pixel buffer width and height
-    size_t width = CVPixelBufferGetWidth(imageBuffer);
-    size_t height = CVPixelBufferGetHeight(imageBuffer);
-    
-    // Create a device-dependent RGB color space
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    
-    // Create a bitmap graphics context with the sample buffer data
-    CGContextRef context = CGBitmapContextCreate(baseAddress, width, height, 8, bytesPerRow, colorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
-    // Create a Quartz image from the pixel data in the bitmap graphics context
-    CGImageRef quartzImage = CGBitmapContextCreateImage(context);
-    // Unlock the pixel buffer
-    CVPixelBufferUnlockBaseAddress(imageBuffer,0);
-    
-    
-    
-    // Free up the context and color space
-    CGContextRelease(context);
-    CGColorSpaceRelease(colorSpace);
-    
-    // Create an image object from the Quartz image
-    UIImage *image = [UIImage imageWithCGImage:quartzImage];
-    
-    // Release the Quartz image
-    CGImageRelease(quartzImage);
-    
-    return (image);
-}
-
-- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
-       fromConnection:(AVCaptureConnection *)connection
-{
-    //NSLog(@"captureOutput: didOutputSampleBufferFromConnection");
-    
-    // Create a UIImage from the sample buffer data
-    self.image = [self imageFromSampleBuffer:sampleBuffer];
-    
-    //< Add your code here that uses the image >
-}
 
 - (void)viewDidLoad
 {
@@ -147,35 +174,11 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(takePicture)];
-    [self.view addGestureRecognizer:recognizer];
-    /*
-     DIVAppDelegate *delegate = (DIVAppDelegate*)[[UIApplication sharedApplication]delegate];
-     NSMutableArray *friends = delegate.venmo.friendData;*/
+    [self startCameraControllerFromViewController:self usingDelegate:self];
     
-    
-    [self startCameraSession];
+ 
     
 }
-
-
--(void)takePicture{
-
-    //NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
-    //UIImage *image = [[UIImage alloc] initWithData:imageData];
-     
-    
-    UIImage *temp = [UIImage imageWithCGImage:_image.CGImage
-                        scale:_image.scale orientation: UIImageOrientationUpMirrored];
-    _image  = temp;
-    [session stopRunning];
-    [_overlay setImage:_image];
-    DIVOCR *ocr = [[DIVOCR alloc]init];
-    [ocr processImage:temp];
-
-    
-}
-
 
 
 -(void)viewDidAppear:(BOOL)animated{
