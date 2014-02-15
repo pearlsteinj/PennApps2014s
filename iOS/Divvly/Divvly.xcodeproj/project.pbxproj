@@ -21,6 +21,7 @@
 		036E813718AF05870041C37F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 036E811918AF05860041C37F /* UIKit.framework */; };
 		036E813F18AF05870041C37F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 036E813D18AF05870041C37F /* InfoPlist.strings */; };
 		036E814118AF05870041C37F /* DivvlyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 036E814018AF05870041C37F /* DivvlyTests.m */; };
+		036E814C18AF05930041C37F /* DIVVenmoIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = 036E814B18AF05930041C37F /* DIVVenmoIntegration.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		036E813C18AF05870041C37F /* DivvlyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DivvlyTests-Info.plist"; sourceTree = "<group>"; };
 		036E813E18AF05870041C37F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		036E814018AF05870041C37F /* DivvlyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DivvlyTests.m; sourceTree = "<group>"; };
+		036E814A18AF05930041C37F /* DIVVenmoIntegration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIVVenmoIntegration.h; path = ../DIVVenmoIntegration.h; sourceTree = "<group>"; };
+		036E814B18AF05930041C37F /* DIVVenmoIntegration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIVVenmoIntegration.m; path = ../DIVVenmoIntegration.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,7 @@
 				036E812718AF05860041C37F /* Main.storyboard */,
 				036E812A18AF05860041C37F /* DIVViewController.h */,
 				036E812B18AF05860041C37F /* DIVViewController.m */,
+				036E814D18AF059B0041C37F /* Integration Files */,
 				036E812D18AF05870041C37F /* Images.xcassets */,
 				036E811C18AF05860041C37F /* Supporting Files */,
 			);
@@ -150,6 +154,15 @@
 				036E813D18AF05870041C37F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		036E814D18AF059B0041C37F /* Integration Files */ = {
+			isa = PBXGroup;
+			children = (
+				036E814A18AF05930041C37F /* DIVVenmoIntegration.h */,
+				036E814B18AF05930041C37F /* DIVVenmoIntegration.m */,
+			);
+			name = "Integration Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				036E814C18AF05930041C37F /* DIVVenmoIntegration.m in Sources */,
 				036E812618AF05860041C37F /* DIVAppDelegate.m in Sources */,
 				036E812C18AF05860041C37F /* DIVViewController.m in Sources */,
 				036E812218AF05860041C37F /* main.m in Sources */,

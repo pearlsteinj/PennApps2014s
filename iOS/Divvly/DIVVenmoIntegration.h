@@ -1,13 +1,13 @@
 //
-//  SPLVenmoIntegration.m
-//  Split
+//  DIVVenmoIntegration.h
+//  Divvly
 //
 //  Created by Josh Pearlstein on 2/14/14.
 //  Copyright (c) 2014 Peter and Josh Ventures. All rights reserved.
 //
 
-#import "SPLVenmoIntegration.h"
+#import <Foundation/Foundation.h>
 
-@implementation SPLVenmoIntegration
+@interface DIVVenmoIntegration : NSObject
 
 @end
