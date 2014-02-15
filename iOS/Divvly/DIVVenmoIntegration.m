@@ -12,7 +12,12 @@
 @implementation DIVVenmoIntegration
 
 -(void)setUserToken:(NSString *)token{
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
     _token = token;
+    [prefs setObject:_token forKey:@"token"];
+    [prefs synchronize];
+    
     [self loadUserData];
 }
 -(void)loadUserData{

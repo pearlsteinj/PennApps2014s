@@ -108,13 +108,12 @@
          
          Tesseract *tesseract = [[Tesseract alloc] initWithDataPath:@"tessdata" language:@"eng"];
          
-         //Get image and put it here
-         
          [tesseract setImage:_image];
          [tesseract recognize];
          
          NSLog(@"%@", [tesseract recognizedText]);
      }];
+    
     [session stopRunning];
 
 
