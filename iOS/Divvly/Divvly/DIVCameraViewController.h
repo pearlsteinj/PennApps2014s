@@ -13,8 +13,9 @@
     AVCaptureSession *session;
     AVCaptureDevice *device;
     AVCaptureDeviceInput *input;
-    AVCaptureStillImageOutput *stillImageOutput;
+    AVCaptureVideoDataOutput *captureOutput;
     AVCaptureVideoPreviewLayer *layer;
+    AVCaptureStillImageOutput *stillImageOutput;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *cameraView;

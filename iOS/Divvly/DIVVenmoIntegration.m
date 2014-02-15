@@ -13,7 +13,8 @@
 
 -(void)setUserToken:(NSString *)token{
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    
+    [prefs synchronize];
+
     _token = token;
     [prefs setObject:_token forKey:@"token"];
     [prefs synchronize];

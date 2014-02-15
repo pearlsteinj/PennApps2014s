@@ -39,6 +39,9 @@
 		588E2D6318AF64DF00108480 /* login.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 588E2D6018AF64DF00108480 /* login.jpg */; };
 		588E2D6618AF696F00108480 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 588E2D6518AF696F00108480 /* AVFoundation.framework */; };
 		588E2D6818AF7F4F00108480 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 588E2D6718AF7F4F00108480 /* tessdata */; };
+		588E2D6A18AF926900108480 /* image_sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 588E2D6918AF926900108480 /* image_sample.jpg */; };
+		588E2D6C18AF95B900108480 /* image_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 588E2D6B18AF95B900108480 /* image_2.png */; };
+		588E2D6E18AFA10D00108480 /* photo.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 588E2D6D18AFA10D00108480 /* photo.PNG */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -235,6 +238,9 @@
 		588E2D6018AF64DF00108480 /* login.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = login.jpg; path = ../login.jpg; sourceTree = "<group>"; };
 		588E2D6518AF696F00108480 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		588E2D6718AF7F4F00108480 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = SOURCE_ROOT; };
+		588E2D6918AF926900108480 /* image_sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_sample.jpg; sourceTree = "<group>"; };
+		588E2D6B18AF95B900108480 /* image_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_2.png; sourceTree = "<group>"; };
+		588E2D6D18AFA10D00108480 /* photo.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo.PNG; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,7 +310,10 @@
 		036E811B18AF05860041C37F /* Divvly */ = {
 			isa = PBXGroup;
 			children = (
+				588E2D6D18AFA10D00108480 /* photo.PNG */,
+				588E2D6918AF926900108480 /* image_sample.jpg */,
 				036E812418AF05860041C37F /* DIVAppDelegate.h */,
+				588E2D6B18AF95B900108480 /* image_2.png */,
 				036E812518AF05860041C37F /* DIVAppDelegate.m */,
 				036E812718AF05860041C37F /* Main.storyboard */,
 				0320524D18AF3AB8009BB045 /* DIVLoginViewController.h */,
@@ -655,10 +664,13 @@
 			files = (
 				038F453918AF73C200B2878F /* .gitignore in Resources */,
 				036E812E18AF05870041C37F /* Images.xcassets in Resources */,
+				588E2D6C18AF95B900108480 /* image_2.png in Resources */,
 				588E2D6318AF64DF00108480 /* login.jpg in Resources */,
 				588E2D6118AF64DF00108480 /* button.png in Resources */,
+				588E2D6E18AFA10D00108480 /* photo.PNG in Resources */,
 				038F453E18AF73C200B2878F /* LICENSE in Resources */,
 				588E2D6818AF7F4F00108480 /* tessdata in Resources */,
+				588E2D6A18AF926900108480 /* image_sample.jpg in Resources */,
 				588E2D6218AF64DF00108480 /* login.html in Resources */,
 				038F454318AF757800B2878F /* photo-capture.png in Resources */,
 				036E812018AF05860041C37F /* InfoPlist.strings in Resources */,

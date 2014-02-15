@@ -50,8 +50,9 @@
 -(void)login{
     //Checks if user logged in previouly
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    [prefs synchronize];
     
-    if (![prefs objectForKey:@"token"]){
+    if ([[prefs objectForKey:@"token"] isEqualToString:@""]){
         [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"login" ofType:@"html"]isDirectory:NO]]];
         _webView.delegate = self;
     }
