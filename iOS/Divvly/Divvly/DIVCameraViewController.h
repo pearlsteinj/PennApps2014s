@@ -21,4 +21,5 @@
 @property (weak, nonatomic) IBOutlet UIView *cameraView;
 @property (strong, nonatomic) IBOutlet UIImageView *overlay;
 @property (strong,nonatomic) UIImage *image;
+@property (nonatomic,retain) NSString *filePath;
 @end

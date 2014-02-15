@@ -12,7 +12,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <QuartzCore/QuartzCore.h>
 #import <ImageIO/CGImageProperties.h>
-
+#import "DIVOCR.h"
 @interface DIVCameraViewController ()
 
 @end
@@ -160,110 +160,23 @@
 
 
 -(void)takePicture{
-    /*
-    AVCaptureConnection *videoConnection = nil;
-    for (AVCaptureConnection *connection in stillImageOutput.connections){
-        for (AVCaptureInputPort *port in [connection inputPorts]){
-            
-            if ([[port mediaType] isEqual:AVMediaTypeVideo]){
-                
-                videoConnection = connection;
-                break;
-            }
-        }
-        if (videoConnection) {
-            break;
-        }
-    }
-    
-    NSLog(@"about to request a capture from: %@", stillImageOutput);
-    
-    [stillImageOutput captureStillImageAsynchronouslyFromConnection:videoConnection completionHandler: ^(CMSampleBufferRef imageSampleBuffer, NSError *error){
-        
-        CFDictionaryRef exifAttachments = CMGetAttachment( imageSampleBuffer, kCGImagePropertyExifDictionary, NULL);
-        if (exifAttachments){
-            
-            // Do something with the attachments if you want to.
-            NSLog(@"attachements: %@", exifAttachments);
-            
-            NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
-            UIImage *image = [[UIImage alloc] initWithData:imageData];
-            
-            _overlay.image = image;
-            
-            UIImage *src_img = image;
-            
-            CGColorSpaceRef d_colorSpace = CGColorSpaceCreateDeviceRGB();
-                       size_t d_bytesPerRow = src_img.size.width * 4;
-            unsigned char * imgData = (unsigned char*)malloc(src_img.size.height*d_bytesPerRow);
-            CGContextRef context =  CGBitmapContextCreate(imgData, src_img.size.width,
-                                                          src_img.size.height,
-                                                          8, d_bytesPerRow,
-                                                          d_colorSpace,
-                                                          kCGImageAlphaNoneSkipFirst);
-            
-            UIGraphicsPushContext(context);
-            // These next two lines 'flip' the drawing so it doesn't appear upside-down.
-            CGContextTranslateCTM(context, 0.0, src_img.size.height);
-            CGContextScaleCTM(context, 1.0, -1.0);
-            // Use UIImage's drawInRect: instead of the CGContextDrawImage function, otherwise you'll have issues when the source image is in portrait orientation.
-            [src_img drawInRect:CGRectMake(0.0, 0.0, src_img.size.width, src_img.size.height)];
-            UIGraphicsPopContext();
+
+    //NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
+    //UIImage *image = [[UIImage alloc] initWithData:imageData];
      
-        
-            // After we've processed the raw data, turn it back into a UIImage instance.
-            CGImageRef new_img = CGBitmapContextCreateImage(context);
-            UIImage * convertedImage = [[UIImage alloc] initWithCGImage:
-                                        new_img];
-            
-            CGImageRelease(new_img);
-            CGContextRelease(context);
-            CGColorSpaceRelease(d_colorSpace);
-            free(imgData);
-            
-            
-            _overlay.image = convertedImage;
-            Tesseract *tesseract = [[Tesseract alloc] initWithDataPath:@"tessdata" language:@"eng"];
-            //[tesseract setImage:convertedImage];
-            [tesseract setImage:[UIImage imageNamed:@"photo.PNG"]];
-            [tesseract recognize];
-            
-            NSLog(@"%@", [tesseract recognizedText]);
-        }
-        else
-            NSLog(@"no attachments");
-        
-    }];
     
-    
-    */
-    
-    
-    _overlay.image = self.image;
-    
-    Tesseract *tesseract = [[Tesseract alloc] initWithDataPath:@"tessdata" language:@"eng"];
-    //[tesseract setImage:convertedImage];
-    //[tesseract setImage:convertedImage];
-    //[tesseract recognize];
-    
-    //NSLog(@"%@", [tesseract recognizedText]);
+    UIImage *temp = [UIImage imageWithCGImage:_image.CGImage
+                        scale:_image.scale orientation: UIImageOrientationUpMirrored];
+    _image  = temp;
+    [session stopRunning];
+    [_overlay setImage:_image];
+    DIVOCR *ocr = [[DIVOCR alloc]init];
+    [ocr processImage:temp];
+
     
 }
 
-- (UIImage *)rotateImage:(UIImage *)image onDegrees:(float)degrees
-{
-    CGFloat rads = M_PI * degrees / 180;
-    float newSide = MAX([image size].width, [image size].height);
-    CGSize size =  CGSizeMake(newSide, newSide);
-    UIGraphicsBeginImageContext(size);
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
-    CGContextTranslateCTM(ctx, newSide/2, newSide/2);
-    CGContextRotateCTM(ctx, rads);
-    CGContextDrawImage(UIGraphicsGetCurrentContext(),CGRectMake(-[image size].width/2,-[image size].height/2,size.width, size.height),image.CGImage);
-    UIImage *i = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return i;
-}
+
 
 -(void)viewDidAppear:(BOOL)animated{
     
