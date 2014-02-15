@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface DIVCameraViewController : UIViewController
+@interface DIVCameraViewController : UIViewController{
+    AVCaptureSession *session;
+    AVCaptureDevice *device;
+    AVCaptureDeviceInput *input;
+    AVCaptureStillImageOutput *stillImageOutput;
+    AVCaptureVideoPreviewLayer *layer;
+}
+
+@property (weak, nonatomic) IBOutlet UIView *cameraView;
 
 @end

@@ -37,6 +37,7 @@
 		588E2D6118AF64DF00108480 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 588E2D5E18AF64DF00108480 /* button.png */; };
 		588E2D6218AF64DF00108480 /* login.html in Resources */ = {isa = PBXBuildFile; fileRef = 588E2D5F18AF64DF00108480 /* login.html */; };
 		588E2D6318AF64DF00108480 /* login.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 588E2D6018AF64DF00108480 /* login.jpg */; };
+		588E2D6618AF696F00108480 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 588E2D6518AF696F00108480 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -231,6 +232,7 @@
 		588E2D5E18AF64DF00108480 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button.png; path = ../button.png; sourceTree = "<group>"; };
 		588E2D5F18AF64DF00108480 /* login.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = login.html; path = ../login.html; sourceTree = "<group>"; };
 		588E2D6018AF64DF00108480 /* login.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = login.jpg; path = ../login.jpg; sourceTree = "<group>"; };
+		588E2D6518AF696F00108480 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +240,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				588E2D6618AF696F00108480 /* AVFoundation.framework in Frameworks */,
 				588E2BCE18AF5E8E00108480 /* SDWebImage.framework in Frameworks */,
 				03C94E9518AF57C3007AFC0E /* ImageIO.framework in Frameworks */,
 				588E2D4418AF60F800108480 /* liblept.a in Frameworks */,
@@ -283,6 +286,7 @@
 		036E811418AF05860041C37F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				588E2D6518AF696F00108480 /* AVFoundation.framework */,
 				03C94E9418AF57C3007AFC0E /* ImageIO.framework */,
 				03C94E9218AF5799007AFC0E /* SDWebImage.framework */,
 				036E811518AF05860041C37F /* Foundation.framework */,
