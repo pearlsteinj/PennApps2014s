@@ -31,6 +31,7 @@
     self.navigationItem.title = @"Add People";
     [[UINavigationBar appearance]setTintColor:[UIColor colorWithRed:52 green:73 blue:94 alpha:1]];
     [_activityIndicator startAnimating];
+    _activityIndicator.hidesWhenStopped = YES;
     [self performSelector:@selector(stopTimer) withObject:nil afterDelay:3.0];
     }
 -(void)stopTimer{
@@ -53,16 +54,17 @@
    UIImageView *img = (UIImageView*)[cell viewWithTag:1];
     img.image = [[_friendsArray objectAtIndex:indexPath.row] objectForKey:@"image"];
     img.clipsToBounds = YES;
-    img.layer.cornerRadius = 23.0f;
+    img.layer.cornerRadius = 34.0f;
     
     img.backgroundColor = [UIColor clearColor];
     
     cell.backgroundColor = [UIColor clearColor];
     
     UILabel *name = (UILabel*)[cell viewWithTag:2];
-    [name setFont:[UIFont fontWithName:@"Open-Sans" size:5]];
+    //[name setFont:[UIFont fontWithName:@"Open-Sans" size:5]];
     NSString *person_name = [[_friendsArray objectAtIndex:indexPath.row] objectForKey:@"name"];
-    [name setText:person_name];
+    NSString *first = [[person_name componentsSeparatedByString:@" "]firstObject];
+    [name setText:first];
     
     return cell;
 }
