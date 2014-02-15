@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0320524F18AF3AB8009BB045 /* DIVLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0320524E18AF3AB8009BB045 /* DIVLoginViewController.m */; };
 		0320525218AF3E7A009BB045 /* DIVCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0320525118AF3E7A009BB045 /* DIVCameraViewController.m */; };
+		03361F6118B02573003A9227 /* DIVAddUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03361F6018B02573003A9227 /* DIVAddUsersViewController.m */; };
 		0357ED8418AFB9F6000B9C2A /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 0357ED8318AFB9F6000B9C2A /* image.png */; };
 		036E811618AF05860041C37F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 036E811518AF05860041C37F /* Foundation.framework */; };
 		036E811818AF05860041C37F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 036E811718AF05860041C37F /* CoreGraphics.framework */; };
@@ -65,6 +66,8 @@
 		0320524E18AF3AB8009BB045 /* DIVLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIVLoginViewController.m; sourceTree = "<group>"; };
 		0320525018AF3E7A009BB045 /* DIVCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIVCameraViewController.h; sourceTree = "<group>"; };
 		0320525118AF3E7A009BB045 /* DIVCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIVCameraViewController.m; sourceTree = "<group>"; };
+		03361F5F18B02573003A9227 /* DIVAddUsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIVAddUsersViewController.h; sourceTree = "<group>"; };
+		03361F6018B02573003A9227 /* DIVAddUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIVAddUsersViewController.m; sourceTree = "<group>"; };
 		0357ED8318AFB9F6000B9C2A /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
 		036E811218AF05860041C37F /* Divvly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Divvly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		036E811518AF05860041C37F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -334,6 +337,8 @@
 				036E812418AF05860041C37F /* DIVAppDelegate.h */,
 				036E812518AF05860041C37F /* DIVAppDelegate.m */,
 				036E812718AF05860041C37F /* Main.storyboard */,
+				03361F5F18B02573003A9227 /* DIVAddUsersViewController.h */,
+				03361F6018B02573003A9227 /* DIVAddUsersViewController.m */,
 				0320524D18AF3AB8009BB045 /* DIVLoginViewController.h */,
 				0320524E18AF3AB8009BB045 /* DIVLoginViewController.m */,
 				0320525018AF3E7A009BB045 /* DIVCameraViewController.h */,
@@ -723,6 +728,7 @@
 				0320525218AF3E7A009BB045 /* DIVCameraViewController.m in Sources */,
 				036E814C18AF05930041C37F /* DIVVenmoIntegration.m in Sources */,
 				038F453D18AF73C200B2878F /* Tesseract.mm in Sources */,
+				03361F6118B02573003A9227 /* DIVAddUsersViewController.m in Sources */,
 				036E812618AF05860041C37F /* DIVAppDelegate.m in Sources */,
 				0320524F18AF3AB8009BB045 /* DIVLoginViewController.m in Sources */,
 				036E812218AF05860041C37F /* main.m in Sources */,

@@ -32,7 +32,6 @@
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
     [self login];
     
 }
@@ -53,7 +52,6 @@
     [prefs synchronize];
     
     
-    NSLog([prefs objectForKey:@"token"]);
     //if (![prefs objectForKey:@"token"] || [[prefs objectForKey:@"token"] isEqualToString:@""]){
         [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"login" ofType:@"html"]isDirectory:NO]]];
         _webView.delegate = self;
@@ -73,12 +71,10 @@
                       @"document.body.innerHTML"];
     if(html.length < 40){
         _token = html;
+        DIVAppDelegate *delegate = (DIVAppDelegate*)[[UIApplication sharedApplication]delegate];
+        [delegate.venmo setUserToken:_token];
         [self performSegueWithIdentifier:@"loggedIn" sender:self];
     }
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    DIVAppDelegate *delegate = (DIVAppDelegate*)[[UIApplication sharedApplication]delegate];
-    [delegate.venmo setUserToken:_token];
-}
 @end

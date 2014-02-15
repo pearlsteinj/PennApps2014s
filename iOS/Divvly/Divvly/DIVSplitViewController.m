@@ -168,7 +168,6 @@
     img.image = [[_friendsArray objectAtIndex:indexPath.row] objectForKey:@"image"];
     img.clipsToBounds = YES;
     img.layer.cornerRadius = 23.0f;
-    
     img.backgroundColor = [UIColor clearColor];
     
     cell.backgroundColor = [UIColor clearColor];

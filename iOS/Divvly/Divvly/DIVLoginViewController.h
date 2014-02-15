@@ -11,4 +11,5 @@
 @interface DIVLoginViewController : UIViewController <UIWebViewDelegate>
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 @property (nonatomic,retain) NSString *token;
+
 @end
