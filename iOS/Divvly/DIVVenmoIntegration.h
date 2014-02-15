@@ -8,13 +8,26 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DIVVenmoIntegration : NSObject
+@interface DIVVenmoIntegration : NSObject <NSURLConnectionDelegate,NSURLConnectionDataDelegate>
 
 //Properties for Venmo Integration
 @property (nonatomic,retain) NSString *token;
-
+//Contains normal User related info
+@property (nonatomic,retain) NSMutableDictionary *userData;
+//Contains 4 fields, {display_name, venmo id, NSURL to pic, UIImage of pic}
+@property (nonatomic,retain) NSMutableArray *friendData;
+//Img data
+@property (nonatomic,retain) NSMutableDictionary *friendsResponse;
+//Data Responses
+@property (nonatomic,retain) NSMutableData *responseUserData;
+@property (nonatomic,retain) NSMutableData *responseFriendData;
+@property (nonatomic,retain) NSMutableData *img;
+//Requests
+@property (nonatomic,retain) NSURLRequest *request1;
+@property (nonatomic,retain) NSURLRequest *request2;
 
 //Possible Method Endpoints
--(BOOL)loginWithUser:(NSString*)user andPass:(NSString*)pass;
+-(void)setUserToken:(NSString *)token;
+
 
 @end

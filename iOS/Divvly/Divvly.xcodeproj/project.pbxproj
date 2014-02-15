@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0320524F18AF3AB8009BB045 /* DIVLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0320524E18AF3AB8009BB045 /* DIVLoginViewController.m */; };
+		0320525218AF3E7A009BB045 /* DIVCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0320525118AF3E7A009BB045 /* DIVCameraViewController.m */; };
 		036E811618AF05860041C37F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 036E811518AF05860041C37F /* Foundation.framework */; };
 		036E811818AF05860041C37F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 036E811718AF05860041C37F /* CoreGraphics.framework */; };
 		036E811A18AF05860041C37F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 036E811918AF05860041C37F /* UIKit.framework */; };
@@ -14,7 +16,6 @@
 		036E812218AF05860041C37F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 036E812118AF05860041C37F /* main.m */; };
 		036E812618AF05860041C37F /* DIVAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 036E812518AF05860041C37F /* DIVAppDelegate.m */; };
 		036E812918AF05860041C37F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 036E812718AF05860041C37F /* Main.storyboard */; };
-		036E812C18AF05860041C37F /* DIVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036E812B18AF05860041C37F /* DIVViewController.m */; };
 		036E812E18AF05870041C37F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 036E812D18AF05870041C37F /* Images.xcassets */; };
 		036E813518AF05870041C37F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 036E813418AF05870041C37F /* XCTest.framework */; };
 		036E813618AF05870041C37F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 036E811518AF05860041C37F /* Foundation.framework */; };
@@ -22,6 +23,8 @@
 		036E813F18AF05870041C37F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 036E813D18AF05870041C37F /* InfoPlist.strings */; };
 		036E814118AF05870041C37F /* DivvlyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 036E814018AF05870041C37F /* DivvlyTests.m */; };
 		036E814C18AF05930041C37F /* DIVVenmoIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = 036E814B18AF05930041C37F /* DIVVenmoIntegration.m */; };
+		03C94E9318AF5799007AFC0E /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C94E9218AF5799007AFC0E /* SDWebImage.framework */; };
+		03C94E9518AF57C3007AFC0E /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C94E9418AF57C3007AFC0E /* ImageIO.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0320524D18AF3AB8009BB045 /* DIVLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIVLoginViewController.h; sourceTree = "<group>"; };
+		0320524E18AF3AB8009BB045 /* DIVLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIVLoginViewController.m; sourceTree = "<group>"; };
+		0320525018AF3E7A009BB045 /* DIVCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIVCameraViewController.h; sourceTree = "<group>"; };
+		0320525118AF3E7A009BB045 /* DIVCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIVCameraViewController.m; sourceTree = "<group>"; };
 		036E811218AF05860041C37F /* Divvly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Divvly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		036E811518AF05860041C37F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		036E811718AF05860041C37F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -46,8 +53,6 @@
 		036E812418AF05860041C37F /* DIVAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIVAppDelegate.h; sourceTree = "<group>"; };
 		036E812518AF05860041C37F /* DIVAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIVAppDelegate.m; sourceTree = "<group>"; };
 		036E812818AF05860041C37F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		036E812A18AF05860041C37F /* DIVViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIVViewController.h; sourceTree = "<group>"; };
-		036E812B18AF05860041C37F /* DIVViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIVViewController.m; sourceTree = "<group>"; };
 		036E812D18AF05870041C37F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		036E813318AF05870041C37F /* DivvlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DivvlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		036E813418AF05870041C37F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -56,6 +61,8 @@
 		036E814018AF05870041C37F /* DivvlyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DivvlyTests.m; sourceTree = "<group>"; };
 		036E814A18AF05930041C37F /* DIVVenmoIntegration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIVVenmoIntegration.h; path = ../DIVVenmoIntegration.h; sourceTree = "<group>"; };
 		036E814B18AF05930041C37F /* DIVVenmoIntegration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIVVenmoIntegration.m; path = ../DIVVenmoIntegration.m; sourceTree = "<group>"; };
+		03C94E9218AF5799007AFC0E /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
+		03C94E9418AF57C3007AFC0E /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03C94E9518AF57C3007AFC0E /* ImageIO.framework in Frameworks */,
+				03C94E9318AF5799007AFC0E /* SDWebImage.framework in Frameworks */,
 				036E811818AF05860041C37F /* CoreGraphics.framework in Frameworks */,
 				036E811A18AF05860041C37F /* UIKit.framework in Frameworks */,
 				036E811618AF05860041C37F /* Foundation.framework in Frameworks */,
@@ -104,6 +113,8 @@
 		036E811418AF05860041C37F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				03C94E9418AF57C3007AFC0E /* ImageIO.framework */,
+				03C94E9218AF5799007AFC0E /* SDWebImage.framework */,
 				036E811518AF05860041C37F /* Foundation.framework */,
 				036E811718AF05860041C37F /* CoreGraphics.framework */,
 				036E811918AF05860041C37F /* UIKit.framework */,
@@ -118,11 +129,13 @@
 				036E812418AF05860041C37F /* DIVAppDelegate.h */,
 				036E812518AF05860041C37F /* DIVAppDelegate.m */,
 				036E812718AF05860041C37F /* Main.storyboard */,
-				036E812A18AF05860041C37F /* DIVViewController.h */,
-				036E812B18AF05860041C37F /* DIVViewController.m */,
 				036E814D18AF059B0041C37F /* Integration Files */,
 				036E812D18AF05870041C37F /* Images.xcassets */,
 				036E811C18AF05860041C37F /* Supporting Files */,
+				0320524D18AF3AB8009BB045 /* DIVLoginViewController.h */,
+				0320524E18AF3AB8009BB045 /* DIVLoginViewController.m */,
+				0320525018AF3E7A009BB045 /* DIVCameraViewController.h */,
+				0320525118AF3E7A009BB045 /* DIVCameraViewController.m */,
 			);
 			path = Divvly;
 			sourceTree = "<group>";
@@ -263,9 +276,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0320525218AF3E7A009BB045 /* DIVCameraViewController.m in Sources */,
 				036E814C18AF05930041C37F /* DIVVenmoIntegration.m in Sources */,
 				036E812618AF05860041C37F /* DIVAppDelegate.m in Sources */,
-				036E812C18AF05860041C37F /* DIVViewController.m in Sources */,
+				0320524F18AF3AB8009BB045 /* DIVLoginViewController.m in Sources */,
 				036E812218AF05860041C37F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,9 +407,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Josh/Desktop/PennApps/PennAppsSpring2014/PennApps2014s/iOS/Divvly,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Divvly/Divvly-Prefix.pch";
 				INFOPLIST_FILE = "Divvly/Divvly-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -406,9 +425,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Josh/Desktop/PennApps/PennAppsSpring2014/PennApps2014s/iOS/Divvly,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Divvly/Divvly-Prefix.pch";
 				INFOPLIST_FILE = "Divvly/Divvly-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -475,6 +499,7 @@
 				036E814618AF05870041C37F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		036E814718AF05870041C37F /* Build configuration list for PBXNativeTarget "DivvlyTests" */ = {
 			isa = XCConfigurationList;
@@ -483,6 +508,7 @@
 				036E814918AF05870041C37F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
