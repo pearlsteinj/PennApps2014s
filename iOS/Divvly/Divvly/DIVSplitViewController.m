@@ -29,7 +29,9 @@
 	// Do any additional setup after loading the view.
     _entries = [[NSMutableArray alloc]init];
     [self parseString];
+    _label.text = _restaurant_name;
 }
+
 -(void)parseString{
     NSMutableArray *lines = [[_textToParse componentsSeparatedByString:@"\n"]mutableCopy];
     _restaurant_name = [lines firstObject];
@@ -41,6 +43,7 @@
         }
     }
 }
+
 -(void)addLine:(NSMutableArray*)line{
     NSNumber *amount = [NSNumber numberWithInt:[line[0] integerValue]];
     [line removeObjectAtIndex:0];
@@ -53,6 +56,7 @@
     [dict setObject:description forKey:@"description"];
     [_entries addObject:dict];
 }
+
 -(BOOL)isNumeric:(NSString*)s
 {
     NSScanner *sc = [NSScanner scannerWithString: s];
@@ -62,6 +66,67 @@
     }
     return NO;
 }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;  }
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return @"Entries";
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return _entries.count;
+}
+
+-(IBAction)addPeople:(id)sender{
+    
+    NSLog([[[[sender superview] superview] superview]description]);
+    UITableViewCell *cell = (UITableViewCell *)[[[sender superview] superview] superview];
+    NSLog([NSString stringWithFormat:@"%d",[[_tableView indexPathForCell:cell] row]]);
+    
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *MyIdentifier = @"cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+    
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:MyIdentifier];
+    }
+    
+    UIButton *btn = (UIButton*)[cell viewWithTag:0];
+    UILabel *description = (UILabel*)[cell viewWithTag:1];
+    UILabel *cost = (UILabel*)[cell viewWithTag:2];
+    
+    description.text = [[_entries objectAtIndex:[indexPath row]] objectForKey:@"description"];
+    [description setFont:[UIFont systemFontOfSize:14]];
+    description.backgroundColor = [UIColor clearColor];
+    [cell addSubview:description];
+    
+    cost.text = [[[_entries objectAtIndex:[indexPath row]] objectForKey:@"cost"] stringValue];
+    cost.textAlignment = UITextAlignmentRight;
+    [cost setFont:[UIFont systemFontOfSize:14]];
+    cost.backgroundColor = [UIColor clearColor];
+    [cell addSubview:cost];
+
+    
+     
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *cellText = cell.textLabel.text;
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

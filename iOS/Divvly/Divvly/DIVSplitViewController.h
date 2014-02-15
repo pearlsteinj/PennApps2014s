@@ -13,5 +13,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *label;
 @property (nonatomic,retain) NSMutableArray *entries;
 @property (nonatomic,retain) NSString *restaurant_name;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
