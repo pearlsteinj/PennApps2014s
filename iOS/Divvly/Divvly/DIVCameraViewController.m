@@ -10,7 +10,7 @@
 #import "DIVAppDelegate.h"
 #import "DIVVenmoIntegration.h"
 #import <AVFoundation/AVFoundation.h>
-
+#import <QuartzCore/QuartzCore.h>
 @interface DIVCameraViewController ()
 
 @end
@@ -77,20 +77,45 @@
     /*
     DIVAppDelegate *delegate = (DIVAppDelegate*)[[UIApplication sharedApplication]delegate];
     NSMutableArray *friends = delegate.venmo.friendData;*/
-    
-   // Tesseract *tesseract = [[Tesseract alloc] initWithDataPath:@"tessdata" language:@"eng"];
-    
-    //Get image and put it here
-    
-    //[tesseract setImage:[UIImage imageNamed:@"image_sample.jpg"]];
-    //[tesseract recognize];
-    
-  //  NSLog(@"%@", [tesseract recognizedText]);
+
     
     [self startCameraSession];
 
 }
 -(void)takePicture{
+    AVCaptureConnection *videoConnection = nil;
+    for (AVCaptureConnection *connection in stillImageOutput.connections)
+    {
+        for (AVCaptureInputPort *port in [connection inputPorts])
+        {
+            if ([[port mediaType] isEqual:AVMediaTypeVideo] )
+            {
+                videoConnection = connection;
+                break;
+            }
+        }
+        if (videoConnection) { break; }
+    }
+    [stillImageOutput captureStillImageAsynchronouslyFromConnection:videoConnection
+                                                  completionHandler: ^(CMSampleBufferRef imageSampleBuffer, NSError *error)
+     {
+         
+         NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
+         UIImage *image = [[UIImage alloc] initWithData:imageData];
+         
+         _image = image;
+         //[_overlay setImage:_image];
+         
+         Tesseract *tesseract = [[Tesseract alloc] initWithDataPath:@"tessdata" language:@"eng"];
+         
+         //Get image and put it here
+         
+         [tesseract setImage:_image];
+         [tesseract recognize];
+         
+         NSLog(@"%@", [tesseract recognizedText]);
+     }];
+    [session stopRunning];
 
 
 }

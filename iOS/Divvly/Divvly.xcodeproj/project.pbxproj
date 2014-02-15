@@ -32,6 +32,7 @@
 		038F453F18AF73C200B2878F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 038F453818AF73C200B2878F /* README.md */; };
 		038F454118AF73C900B2878F /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 038F454018AF73C900B2878F /* tessdata */; };
 		038F454318AF757800B2878F /* photo-capture.png in Resources */ = {isa = PBXBuildFile; fileRef = 038F454218AF757800B2878F /* photo-capture.png */; };
+		03A02F2B18AF7AF400FCCAA5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03A02F2A18AF7AF400FCCAA5 /* QuartzCore.framework */; };
 		03C94E9518AF57C3007AFC0E /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C94E9418AF57C3007AFC0E /* ImageIO.framework */; };
 		588E2BCE18AF5E8E00108480 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C94E9218AF5799007AFC0E /* SDWebImage.framework */; };
 		588E2D6118AF64DF00108480 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 588E2D5E18AF64DF00108480 /* button.png */; };
@@ -227,6 +228,7 @@
 		038F453818AF73C200B2878F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		038F454018AF73C900B2878F /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tessdata; path = ../../../../../../tessdata; sourceTree = "<group>"; };
 		038F454218AF757800B2878F /* photo-capture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-capture.png"; sourceTree = "<group>"; };
+		03A02F2A18AF7AF400FCCAA5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		03C94E9218AF5799007AFC0E /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
 		03C94E9418AF57C3007AFC0E /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		588E2D5E18AF64DF00108480 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button.png; path = ../button.png; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03A02F2B18AF7AF400FCCAA5 /* QuartzCore.framework in Frameworks */,
 				038F453A18AF73C200B2878F /* liblept.a in Frameworks */,
 				588E2D6618AF696F00108480 /* AVFoundation.framework in Frameworks */,
 				588E2BCE18AF5E8E00108480 /* SDWebImage.framework in Frameworks */,
@@ -286,6 +289,7 @@
 		036E811418AF05860041C37F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				03A02F2A18AF7AF400FCCAA5 /* QuartzCore.framework */,
 				588E2D6518AF696F00108480 /* AVFoundation.framework */,
 				03C94E9418AF57C3007AFC0E /* ImageIO.framework */,
 				03C94E9218AF5799007AFC0E /* SDWebImage.framework */,
