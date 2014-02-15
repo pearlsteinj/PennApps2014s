@@ -12,13 +12,12 @@
 #import <AVFoundation/AVFoundation.h>
 #import <QuartzCore/QuartzCore.h>
 #import <ImageIO/CGImageProperties.h>
-#import "DIVOCR.h"
 #import <AssetsLibrary/ALAsset.h>
 #import <AssetsLibrary/ALAssetRepresentation.h>
 #import <ImageIO/CGImageSource.h>
 #import <ImageIO/CGImageProperties.h>
 #import <MobileCoreServices/UTCoreTypes.h>
-
+#import "DIVSplitViewController.h"
 
 @interface DIVCameraViewController ()
 
@@ -147,8 +146,8 @@
         [tesseract setImage:_image];
         [tesseract recognize];
         
-        NSLog([tesseract recognizedText]);
-        
+        _text = [tesseract recognizedText];
+        [self performSegueWithIdentifier:@"imageParsed" sender:self];
         
     }
     
@@ -156,7 +155,10 @@
     
     
 }
-
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    DIVSplitViewController *view =  (DIVSplitViewController*)segue.destinationViewController;
+    view.textToParse = _text;
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

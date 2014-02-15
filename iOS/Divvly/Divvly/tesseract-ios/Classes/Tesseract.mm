@@ -164,7 +164,7 @@ namespace tesseract {
      _tesseract->SetVariable("language_model_penalty_non_dict_word ", "0");
      */
     _tesseract->SetVariable("language_model_penalty_non_dict_word ", "2");
-    _tesseract->SetVariable("tessedit_char_whitelist", " $.0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ(),><:!");
+    _tesseract->SetVariable("tessedit_char_whitelist", " $.0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ(),><_:!");
 
     
     [_variables setValue:value forKey:key];

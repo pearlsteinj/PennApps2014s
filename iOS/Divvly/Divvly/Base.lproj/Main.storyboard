@@ -82,11 +82,42 @@
                     <connections>
                         <outlet property="cameraView" destination="GD1-5u-VOu" id="fcn-zA-VUu"/>
                         <outlet property="overlay" destination="jrF-eB-l0O" id="mhQ-zx-jVw"/>
+                        <segue destination="EnP-Ot-VMv" kind="push" identifier="imageParsed" id="eti-PF-OKW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pbJ-Ic-xXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="672" y="-99"/>
+            <point key="canvasLocation" x="672" y="11"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="61h-eJ-V50">
+            <objects>
+                <viewController id="EnP-Ot-VMv" customClass="DIVSplitViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aCP-yp-Oyf"/>
+                        <viewControllerLayoutGuide type="bottom" id="vUI-j0-cJf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5Xx-km-hnQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNv-zW-YSb">
+                                <rect key="frame" x="80" y="68" width="199" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1PL-jG-AqR"/>
+                    <connections>
+                        <outlet property="label" destination="BNv-zW-YSb" id="KiG-DW-V8D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qxl-da-8G7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1159" y="15"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
