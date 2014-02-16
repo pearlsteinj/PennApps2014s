@@ -9,6 +9,8 @@
 #define FRIENDS_ENPOINT1() "https://api.venmo.com/v1/users/"
 #define FRIENDS_ENPOINT2()  "/friends?access_token="
 #import "DIVVenmoIntegration.h"
+#import "ASIFormDataRequest.h"
+
 @implementation DIVVenmoIntegration
 
 -(void)setUserToken:(NSString *)token{
@@ -141,8 +143,29 @@
 }
 
 -(void)chargeID:(NSString*)ID amount:(NSNumber*)amount note:(NSString *)note payID:(NSNumber**)paymentID{
-    NSString *request =  [NSString stringWithFormat:@"https://api.venmo.com/v1/payments?access_token=%@&user_id=%@&note=%@&amount=%.2f",_token,ID,note,(-1*[amount floatValue])];
-    NSLog(@"%@",request);
+    //NSString *request =  [NSString stringWithFormat:@"https://api.venmo.com/v1/payments?access_token=%@&user_id=%@&note=%@&amount=%.2f",_token,ID,note,(-1*[amount floatValue])];
+    //NSLog(@"%@",request);
+    
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:@"https://api.venmo.com/v1/payments"]];
+    [request setPostValue:_token forKey:@"access_token"];
+    [request setPostValue:ID forKey:@"user_id"];
+    [request setPostValue:note forKey:@"note"];
+    [request setPostValue:[NSNumber numberWithFloat:(-1*[amount floatValue]) ] forKey:@"amount"];
+
+    [request startSynchronous];
+    
+    NSError *error = [request error];
+    if (!error){
+        
+        
+        NSLog(@"yip!");
+        
+        NSData *response  = [request responseData];
+        NSMutableDictionary *dict = [NSJSONSerialization JSONObjectWithData:response options:0 error:nil];
+        NSLog([dict description]);
+        
+    }
+    
     /*NSURL *url = [NSURL URLWithString:request];
     NSURLRequest *r = [NSURLRequest requestWithURL:url];
     [NSURLConnection connectionWithRequest:r delegate:self];
