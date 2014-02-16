@@ -10,7 +10,7 @@
 #import "stdio.h"
 #import "DIVAppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
-
+#import "DIVTipTaxViewController.h"
 @interface DIVSplitViewController ()
 
 @end
@@ -43,13 +43,21 @@
 -(void)parseString{
     NSMutableArray *lines = [[_textToParse componentsSeparatedByString:@"\n"]mutableCopy];
     _restaurant_name = [lines firstObject];
-    NSLog(@"Restaurant Name: %@",_restaurant_name);
+    [_name_labe setText:_restaurant_name];
+    [_name_labe setFont:[UIFont fontWithName:@"Open-Sans" size:40.0f]];
     for(id line in lines){
         NSMutableArray *tokens = [[line componentsSeparatedByString:@" "]mutableCopy];
         if([self isNumeric:tokens[0]] && [self isNumeric:[tokens lastObject]]){
             [self addLine:tokens];
         }
     }
+    float totalCost = 0;
+    for(id entry in _entries){
+        totalCost += [entry[@"cost"] floatValue];
+    }
+    [_price_label setTextColor:[UIColor greenColor]];
+    [_price_label setFont:[UIFont fontWithName:@"Open-Sans" size:30.0f]];
+    [_price_label setText:[NSString stringWithFormat:@"%.2f",totalCost]];
 }
 
 -(void)addLine:(NSMutableArray*)line{
@@ -77,12 +85,8 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;  }
-
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return @"Entries";
+    return 1;
 }
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     return _entries.count;
@@ -123,19 +127,27 @@
         UILabel *cost = (UILabel*)[cell viewWithTag:2];
         
         description.text = [[_entries objectAtIndex:[indexPath row]] objectForKey:@"description"];
+        [description setFont:[UIFont fontWithName:@"Open-Sans" size:20.0f]];
         [description setFont:[UIFont systemFontOfSize:14]];
         description.backgroundColor = [UIColor clearColor];
         [cell addSubview:description];
         
         cost.text = [[[_entries objectAtIndex:[indexPath row]] objectForKey:@"cost"] stringValue];
+        [cost setFont:[UIFont fontWithName:@"Open-Sans" size:35.0f]];
+
         cost.textAlignment = UITextAlignmentRight;
         [cost setFont:[UIFont systemFontOfSize:14]];
         cost.backgroundColor = [UIColor clearColor];
+        [cost setTextColor:[UIColor greenColor]];
         [cell addSubview:cost];
         [img setImage:[_cellsAndImages objectForKey:str][@"image"]];
         img.clipsToBounds = YES;
         img.layer.cornerRadius = 23.0f;
         img.backgroundColor = [UIColor clearColor];
+        
+        UILabel *nameL = (UILabel*)[cell viewWithTag:15];
+        [nameL setFont:[UIFont fontWithName:@"Open-Sans" size:10.0f]];
+        [nameL setText:[_cellsAndImages objectForKey:str][@"name"]];
     }
     else if(!editing_row){
         static NSString *MyIdentifier = @"cell";
@@ -159,7 +171,8 @@
     
         cost.text = [[[_entries objectAtIndex:[indexPath row]] objectForKey:@"cost"] stringValue];
         cost.textAlignment = UITextAlignmentRight;
-        [cost setFont:[UIFont systemFontOfSize:14]];
+        [cost setFont:[UIFont fontWithName:@"Open-Sans" size:35.0f]];
+        [cost setTextColor:[UIColor greenColor]];
         cost.backgroundColor = [UIColor clearColor];
         [cell addSubview:cost];
     }
@@ -193,6 +206,11 @@
     UIImage *img = [_friendsArray objectAtIndex:indexPath.row][@"image"];
     [self updateCellatIndexPath:[_tableView indexPathForCell:Tcell] withImage:img andRecord:[_friendsArray objectAtIndex:indexPath.row]];
     
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    DIVTipTaxViewController *dest = (DIVTipTaxViewController*)segue.destinationViewController;
+    dest.entries = _entries;
+    dest.cellsToMatch = _cellsAndImages;
 }
 -(void)updateCellatIndexPath:(NSIndexPath*)indexPath withImage:(UIImage*)img andRecord:(id)record{
     NSString *str = [NSString stringWithFormat:@"%ld",(long)indexPath.row];

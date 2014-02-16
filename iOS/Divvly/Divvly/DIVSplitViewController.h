@@ -19,4 +19,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,retain) NSMutableArray *friendsArray;
 @property (nonatomic,retain) NSMutableDictionary *cellsAndImages;
+
+//UILabels
+@property (strong, nonatomic) IBOutlet UILabel *price_label;
+@property (strong, nonatomic) IBOutlet UILabel *name_labe;
+
 @end
