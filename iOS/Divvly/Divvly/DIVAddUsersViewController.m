@@ -65,7 +65,7 @@
     _finalFriendsArray = _friendsArray;
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
-    
+
 }
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
     return _finalFriendsArray.count;

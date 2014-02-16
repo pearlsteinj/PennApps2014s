@@ -139,4 +139,18 @@
         [self pullPictures];
     }
 }
+
+-(void)chargeID:(NSString*)ID amount:(NSNumber*)amount note:(NSString *)note payID:(NSNumber**)paymentID{
+    NSString *request =  [NSString stringWithFormat:@"https://api.venmo.com/v1/payments?access_token=%@&user_id=%@&note=%@&amount=%.2f",_token,ID,note,(-1*[amount floatValue])];
+    NSLog(@"%@",request);
+    /*NSURL *url = [NSURL URLWithString:request];
+    NSURLRequest *r = [NSURLRequest requestWithURL:url];
+    [NSURLConnection connectionWithRequest:r delegate:self];
+   [NSURLConnection sendAsynchronousRequest:r queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+       NSError *error;
+       NSMutableDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+       *paymentID = dict[@"payment"][@"id"];
+       NSLog(@"%@",*paymentID);
+   }];*/
+}
 @end

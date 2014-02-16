@@ -37,6 +37,7 @@
 		03A02F2B18AF7AF400FCCAA5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03A02F2A18AF7AF400FCCAA5 /* QuartzCore.framework */; };
 		03C94E9518AF57C3007AFC0E /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C94E9418AF57C3007AFC0E /* ImageIO.framework */; };
 		03D164F518B076E8009B60AF /* DIVTipTaxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D164F418B076E8009B60AF /* DIVTipTaxViewController.m */; };
+		03D164F818B0B574009B60AF /* DIVVenmoChargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D164F718B0B574009B60AF /* DIVVenmoChargeViewController.m */; };
 		03D1E56F18AFCA91005763E7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D1E56E18AFCA91005763E7 /* CFNetwork.framework */; };
 		03D1E57118AFCA9B005763E7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D1E57018AFCA9B005763E7 /* SystemConfiguration.framework */; };
 		03D1E57318AFCAA2005763E7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D1E57218AFCAA2005763E7 /* MobileCoreServices.framework */; };
@@ -248,6 +249,8 @@
 		03C94E9418AF57C3007AFC0E /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		03D164F318B076E8009B60AF /* DIVTipTaxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIVTipTaxViewController.h; sourceTree = "<group>"; };
 		03D164F418B076E8009B60AF /* DIVTipTaxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIVTipTaxViewController.m; sourceTree = "<group>"; };
+		03D164F618B0B574009B60AF /* DIVVenmoChargeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIVVenmoChargeViewController.h; sourceTree = "<group>"; };
+		03D164F718B0B574009B60AF /* DIVVenmoChargeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIVVenmoChargeViewController.m; sourceTree = "<group>"; };
 		03D1E56E18AFCA91005763E7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		03D1E57018AFCA9B005763E7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		03D1E57218AFCAA2005763E7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -340,6 +343,8 @@
 				036E812418AF05860041C37F /* DIVAppDelegate.h */,
 				036E812518AF05860041C37F /* DIVAppDelegate.m */,
 				036E812718AF05860041C37F /* Main.storyboard */,
+				03D164F618B0B574009B60AF /* DIVVenmoChargeViewController.h */,
+				03D164F718B0B574009B60AF /* DIVVenmoChargeViewController.m */,
 				03D164F318B076E8009B60AF /* DIVTipTaxViewController.h */,
 				03D164F418B076E8009B60AF /* DIVTipTaxViewController.m */,
 				03361F5F18B02573003A9227 /* DIVAddUsersViewController.h */,
@@ -734,6 +739,7 @@
 				036E814C18AF05930041C37F /* DIVVenmoIntegration.m in Sources */,
 				038F453D18AF73C200B2878F /* Tesseract.mm in Sources */,
 				03361F6118B02573003A9227 /* DIVAddUsersViewController.m in Sources */,
+				03D164F818B0B574009B60AF /* DIVVenmoChargeViewController.m in Sources */,
 				03D164F518B076E8009B60AF /* DIVTipTaxViewController.m in Sources */,
 				036E812618AF05860041C37F /* DIVAppDelegate.m in Sources */,
 				0320524F18AF3AB8009BB045 /* DIVLoginViewController.m in Sources */,

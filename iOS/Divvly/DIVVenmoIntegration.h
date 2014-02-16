@@ -30,6 +30,7 @@
 
 //Possible Method Endpoints
 -(void)setUserToken:(NSString *)token;
+-(void)chargeID:(NSString*)ID amount:(NSNumber*)amount note:(NSString*)note payID:(NSNumber**)paymentID;
 
 
 @end
