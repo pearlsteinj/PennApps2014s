@@ -14,7 +14,7 @@
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong,nonatomic) NSMutableArray *friendsArray;
 @property (strong,nonatomic) NSMutableArray *finalFriendsArray;
-
+@property (nonatomic,retain) NSMutableArray *selectedFriends;
 
 - (IBAction)refresh:(id)sender;
 @end
