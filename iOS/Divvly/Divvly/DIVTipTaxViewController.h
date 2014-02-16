@@ -11,5 +11,6 @@
 @interface DIVTipTaxViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,retain) NSMutableArray *entries;
-@property (nonatomic,retain) NSMutableArray *cellsToMatch;
+@property (nonatomic,retain) NSMutableDictionary *cellsToMatch;
+@property (nonatomic,retain) NSMutableArray *final;
 @end

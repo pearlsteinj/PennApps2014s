@@ -30,7 +30,12 @@
 }
 -(void)calcTotals{
     //Here calc totals
-    
+    for(id entry in _entries){
+        NSLog(@"Entry: %@",entry);
+    }
+    for(id entry in _cellsToMatch){
+        NSLog(@"Cell: %@",entry);
+    }
 }
 - (void)didReceiveMemoryWarning
 {
