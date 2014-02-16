@@ -122,5 +122,6 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     DIVCameraViewController *dest = (DIVCameraViewController*)segue.destinationViewController;
     dest.selectedFriends = _selectedFriends;
+    NSLog([_selectedFriends description]);
 }
 @end

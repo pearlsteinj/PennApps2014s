@@ -150,6 +150,14 @@
 }
 
 
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    NSLog([[_friendsArray objectAtIndex:indexPath.row] description]);
+    
+    
+}
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
     return _friendsArray.count;
 }
