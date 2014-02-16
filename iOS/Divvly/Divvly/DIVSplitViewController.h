@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DIVSplitViewController : UIViewController{
+@interface DIVSplitViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>{
     bool editing_row;
 }
 @property (nonatomic,retain) NSString *textToParse;

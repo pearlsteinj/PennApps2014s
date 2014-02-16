@@ -8,6 +8,7 @@
 
 #import "DIVAddUsersViewController.h"
 #import "DIVAppDelegate.h"
+#import "DIVCameraViewController.h"
 #import <QuartzCore/QuartzCore.h>
 @interface DIVAddUsersViewController ()
 
@@ -82,7 +83,8 @@
         img.layer.cornerRadius = 34.0f;
         
         img.backgroundColor = [UIColor clearColor];
-        
+        img.layer.borderColor = [UIColor clearColor].CGColor;
+        img.layer.borderWidth =0;
         cell.backgroundColor = [UIColor clearColor];
     
         UILabel *name = (UILabel*)[cell viewWithTag:2];
@@ -90,38 +92,35 @@
         NSString *person_name = [[_finalFriendsArray objectAtIndex:indexPath.row] objectForKey:@"name"];
         NSString *first = [[person_name componentsSeparatedByString:@" "]firstObject];
         [name setText:first];
-
+    for(id entry in _selectedFriends){
+        if ([entry[@"name"]isEqualToString:person_name]) {
+            img.layer.borderColor = [UIColor greenColor].CGColor;
+            img.layer.borderWidth = 3.0f;
+            break;
+        }
+    }
+    
        return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
     UICollectionViewCell *cell = [_collectionView cellForItemAtIndexPath:indexPath];
     if(![_selectedFriends containsObject:[_finalFriendsArray objectAtIndex:indexPath.row]]){
-        [cell setRestorationIdentifier:@"selected"];
-        UIImageView *img = (UIImageView*)[cell viewWithTag:1];
-        [img.layer setBorderColor: [[UIColor greenColor] CGColor]];
-        
-        [img.layer setBorderWidth: 4.0];
-        
         [_selectedFriends addObject:[_finalFriendsArray objectAtIndex:indexPath.row]];
         [collectionView reloadItemsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil]];
     }
     else{
-        [cell setRestorationIdentifier:@"person"];
-        UIImageView *img = (UIImageView*)[cell viewWithTag:1];
-        [img.layer setBorderWidth: 0];
         [_selectedFriends removeObject:[_finalFriendsArray objectAtIndex:indexPath.row]];
         [collectionView reloadItemsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil]];
     }
-    NSLog(@"%@",_selectedFriends);
 }
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (IBAction)refresh:(id)sender {
-    [_collectionView reloadData];
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    DIVCameraViewController *dest = (DIVCameraViewController*)segue.destinationViewController;
+    dest.selectedFriends = _selectedFriends;
 }
 @end

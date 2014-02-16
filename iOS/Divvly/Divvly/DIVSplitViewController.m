@@ -28,11 +28,6 @@
 
 - (void)viewDidLoad
 {
-    
-    DIVAppDelegate *delegate = (DIVAppDelegate*)[[UIApplication sharedApplication]delegate];
-  
-    _friendsArray = delegate.venmo.friendData;
-    
 //    NSLog([_friendsArray description]);
     
     
@@ -174,8 +169,9 @@
     return cell;
 }
 
-
-
+-(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"Selected: %@",[_friendsArray objectAtIndex:indexPath.row][@"name"]);
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

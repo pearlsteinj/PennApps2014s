@@ -158,6 +158,8 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     DIVSplitViewController *view =  (DIVSplitViewController*)segue.destinationViewController;
     view.textToParse = _text;
+    view.friendsArray = _selectedFriends;
+
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -193,6 +195,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 @end

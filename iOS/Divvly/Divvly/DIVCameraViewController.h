@@ -22,4 +22,5 @@
 @property (strong, nonatomic) IBOutlet UIImageView *overlay;
 @property (strong,nonatomic) UIImage *image;
 @property (nonatomic,retain) NSString *text;
+@property (nonatomic,retain) NSMutableArray *selectedFriends;
 @end
