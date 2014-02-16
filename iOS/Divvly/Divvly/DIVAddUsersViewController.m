@@ -123,9 +123,7 @@
     DIVCameraViewController *dest = (DIVCameraViewController*)segue.destinationViewController;
     dest.selectedFriends = _selectedFriends;
      DIVAppDelegate *delegate = (DIVAppDelegate*)[[UIApplication sharedApplication]delegate];
-    NSLog([delegate.venmo.userData description]);
     
     [dest.selectedFriends addObject:delegate.venmo.userDataCleaned];
-    NSLog([_selectedFriends description]);
 }
 @end

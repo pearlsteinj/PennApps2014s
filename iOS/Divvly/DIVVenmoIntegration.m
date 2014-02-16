@@ -68,7 +68,6 @@
         
     }
     
-    NSLog([_userData description]);
     
     NSMutableDictionary *myDict = [NSMutableDictionary dictionary];
     NSMutableDictionary *user = [[_userData objectForKey:@"data"] objectForKey:@"user"];
@@ -92,7 +91,6 @@
          if (image && finished)
          {
              [_userDataCleaned setObject:image forKey:@"image"];
-             NSLog([_userDataCleaned description]);
          }
      }];
     
