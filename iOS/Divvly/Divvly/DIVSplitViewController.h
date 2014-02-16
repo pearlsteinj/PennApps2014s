@@ -10,6 +10,7 @@
 
 @interface DIVSplitViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>{
     bool editing_row;
+    bool finalized_row;
 }
 @property (nonatomic,retain) NSString *textToParse;
 @property (strong, nonatomic) IBOutlet UILabel *label;
@@ -17,5 +18,5 @@
 @property (nonatomic,retain) NSString *restaurant_name;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,retain) NSMutableArray *friendsArray;
-
+@property (nonatomic,retain) NSMutableDictionary *cellsAndImages;
 @end

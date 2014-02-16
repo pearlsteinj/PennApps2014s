@@ -36,6 +36,8 @@
     _entries = [[NSMutableArray alloc]init];
     [self parseString];
     _label.text = _restaurant_name;
+    _cellsAndImages = [[NSMutableDictionary alloc]init];
+
 }
 
 -(void)parseString{
@@ -82,7 +84,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
+
     return _entries.count;
 }
 
@@ -102,8 +104,40 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSString *str = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
     UITableView *cell;
-    if(!editing_row){
+    if([_cellsAndImages objectForKey:str] != NULL){
+        finalized_row = false;
+        static NSString *MyIdentifier = @"final";
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+        
+        if (cell == nil)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                          reuseIdentifier:MyIdentifier];
+        }
+        
+        UIImageView *img = (UIImageView*)[cell viewWithTag:10];
+        UILabel *description = (UILabel*)[cell viewWithTag:1];
+        UILabel *cost = (UILabel*)[cell viewWithTag:2];
+        
+        description.text = [[_entries objectAtIndex:[indexPath row]] objectForKey:@"description"];
+        [description setFont:[UIFont systemFontOfSize:14]];
+        description.backgroundColor = [UIColor clearColor];
+        [cell addSubview:description];
+        
+        cost.text = [[[_entries objectAtIndex:[indexPath row]] objectForKey:@"cost"] stringValue];
+        cost.textAlignment = UITextAlignmentRight;
+        [cost setFont:[UIFont systemFontOfSize:14]];
+        cost.backgroundColor = [UIColor clearColor];
+        [cell addSubview:cost];
+        [img setImage:[_cellsAndImages objectForKey:str][@"image"]];
+        img.clipsToBounds = YES;
+        img.layer.cornerRadius = 23.0f;
+        img.backgroundColor = [UIColor clearColor];
+    }
+    else if(!editing_row){
         static NSString *MyIdentifier = @"cell";
     
         cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
@@ -154,9 +188,19 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    NSLog([[_friendsArray objectAtIndex:indexPath.row] description]);
     
+    UITableViewCell *Tcell = (UITableViewCell*)[[[collectionView superview]superview]superview];
+    UIImage *img = [_friendsArray objectAtIndex:indexPath.row][@"image"];
+    [self updateCellatIndexPath:[_tableView indexPathForCell:Tcell] withImage:img andRecord:[_friendsArray objectAtIndex:indexPath.row]];
     
+}
+-(void)updateCellatIndexPath:(NSIndexPath*)indexPath withImage:(UIImage*)img andRecord:(id)record{
+    NSString *str = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
+    [_cellsAndImages setObject:record forKey:str];
+    editing_row = false;
+    finalized_row = true;
+    NSArray *temp = [[NSArray alloc]initWithObjects:indexPath, nil];
+    [_tableView reloadRowsAtIndexPaths:temp withRowAnimation:UITableViewRowAnimationRight];
 }
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
     return _friendsArray.count;
@@ -172,14 +216,10 @@
     img.clipsToBounds = YES;
     img.layer.cornerRadius = 23.0f;
     img.backgroundColor = [UIColor clearColor];
-    
     cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 
--(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"Selected: %@",[_friendsArray objectAtIndex:indexPath.row][@"name"]);
-}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
