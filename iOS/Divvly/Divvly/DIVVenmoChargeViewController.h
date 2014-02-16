@@ -10,5 +10,7 @@
 
 @interface DIVVenmoChargeViewController : UIViewController
 @property (nonatomic,retain) NSMutableArray *toCharge;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionPay;
 @property (nonatomic,retain) NSMutableArray *payIDs;
+@property (nonatomic, retain) NSTimer * timer;
 @end

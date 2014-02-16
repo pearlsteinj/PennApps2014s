@@ -162,7 +162,6 @@
         
         NSData *response  = [request responseData];
         NSMutableDictionary *dict = [NSJSONSerialization JSONObjectWithData:response options:0 error:nil];
-        NSLog([dict description]);
         
     }
     

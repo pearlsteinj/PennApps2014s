@@ -27,6 +27,7 @@
 		036E814C18AF05930041C37F /* DIVVenmoIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = 036E814B18AF05930041C37F /* DIVVenmoIntegration.m */; };
 		037743E918B0C3AD0084559C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 037743E818B0C3AD0084559C /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		037743EF18B0C7010084559C /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 037743EE18B0C7010084559C /* libxml2.dylib */; };
+		037743F118B0DBD20084559C /* N_Ta814zbnb3AALZaCIO60I6mWZFZqo_m7HnNWnIljo.png in Resources */ = {isa = PBXBuildFile; fileRef = 037743F018B0DBD20084559C /* N_Ta814zbnb3AALZaCIO60I6mWZFZqo_m7HnNWnIljo.png */; };
 		0386429918AFDCF50080B6AA /* DIVSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0386429818AFDCF50080B6AA /* DIVSplitViewController.m */; };
 		038F453918AF73C200B2878F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 038F449C18AF73C200B2878F /* .gitignore */; };
 		038F453A18AF73C200B2878F /* liblept.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 038F453018AF73C200B2878F /* liblept.a */; };
@@ -118,6 +119,7 @@
 		037743E818B0C3AD0084559C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		037743EC18B0C5610084559C /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		037743EE18B0C7010084559C /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		037743F018B0DBD20084559C /* N_Ta814zbnb3AALZaCIO60I6mWZFZqo_m7HnNWnIljo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = N_Ta814zbnb3AALZaCIO60I6mWZFZqo_m7HnNWnIljo.png; sourceTree = "<group>"; };
 		0386429718AFDCF50080B6AA /* DIVSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIVSplitViewController.h; sourceTree = "<group>"; };
 		0386429818AFDCF50080B6AA /* DIVSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIVSplitViewController.m; sourceTree = "<group>"; };
 		038F449C18AF73C200B2878F /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 		036E814D18AF059B0041C37F /* Integration Files */ = {
 			isa = PBXGroup;
 			children = (
+				037743F018B0DBD20084559C /* N_Ta814zbnb3AALZaCIO60I6mWZFZqo_m7HnNWnIljo.png */,
 				036E814A18AF05930041C37F /* DIVVenmoIntegration.h */,
 				036E814B18AF05930041C37F /* DIVVenmoIntegration.m */,
 			);
@@ -885,6 +888,7 @@
 				038F454318AF757800B2878F /* photo-capture.png in Resources */,
 				036E812018AF05860041C37F /* InfoPlist.strings in Resources */,
 				038F453C18AF73C200B2878F /* README.md in Resources */,
+				037743F118B0DBD20084559C /* N_Ta814zbnb3AALZaCIO60I6mWZFZqo_m7HnNWnIljo.png in Resources */,
 				038F453F18AF73C200B2878F /* README.md in Resources */,
 				036E812918AF05860041C37F /* Main.storyboard in Resources */,
 				0357ED8418AFB9F6000B9C2A /* image.png in Resources */,
