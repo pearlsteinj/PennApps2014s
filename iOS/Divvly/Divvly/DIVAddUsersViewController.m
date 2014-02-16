@@ -56,7 +56,7 @@
     [[UINavigationBar appearance]setTintColor:[UIColor colorWithRed:52 green:73 blue:94 alpha:1]];
     [_activityIndicator startAnimating];
     _activityIndicator.hidesWhenStopped = YES;
-    [self performSelector:@selector(stopTimer) withObject:nil afterDelay:3.0];
+    [self performSelector:@selector(stopTimer) withObject:nil afterDelay:5.0];
 }
 -(void)stopTimer{
     [_activityIndicator stopAnimating];
@@ -122,6 +122,10 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     DIVCameraViewController *dest = (DIVCameraViewController*)segue.destinationViewController;
     dest.selectedFriends = _selectedFriends;
+     DIVAppDelegate *delegate = (DIVAppDelegate*)[[UIApplication sharedApplication]delegate];
+    NSLog([delegate.venmo.userData description]);
+    
+    [dest.selectedFriends addObject:delegate.venmo.userDataCleaned];
     NSLog([_selectedFriends description]);
 }
 @end

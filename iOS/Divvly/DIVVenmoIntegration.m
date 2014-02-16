@@ -14,7 +14,7 @@
 -(void)setUserToken:(NSString *)token{
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     [prefs synchronize];
-
+    
     _token = token;
     [prefs setObject:_token forKey:@"token"];
     [prefs synchronize];
@@ -28,7 +28,7 @@
     NSURL *url1 = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",ME_ENDPOINT,_token]];
     _request1 = [NSURLRequest requestWithURL:url1];
     [NSURLConnection connectionWithRequest:_request1 delegate:self];
-
+    
 }
 -(void)part2{
     //Pull all the friends
@@ -65,14 +65,43 @@
                  [entry setObject:image forKey:@"image"];
              }
          }];
-
+        
     }
+    
+    NSLog([_userData description]);
+    
+    NSMutableDictionary *myDict = [NSMutableDictionary dictionary];
+    NSMutableDictionary *user = [[_userData objectForKey:@"data"] objectForKey:@"user"];
+    NSString *name = [[[user objectForKey:@"first_name"] stringByAppendingString:@" "] stringByAppendingString:[user objectForKey:@"last_name"]];
+    NSString *venmo_id = user[@"id"];
+    NSURL *pic_url = user[@"profile_picture_url"];
+    [myDict setObject:name forKey:@"name"];
+    [myDict setObject:venmo_id forKey:@"id"];
+    [myDict setObject:pic_url forKey:@"pic_url"];
+    
+    NSURL *imageURL = [NSURL URLWithString:myDict[@"pic_url"]];
+    _userDataCleaned = myDict;
+    
+    [SDWebImageDownloader.sharedDownloader downloadImageWithURL:imageURL
+                                                        options:0
+                                                       progress:^(NSUInteger receivedSize, long long expectedSize)
+     {
+     }
+                                                      completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished)
+     {
+         if (image && finished)
+         {
+             [_userDataCleaned setObject:image forKey:@"image"];
+             NSLog([_userDataCleaned description]);
+         }
+     }];
+    
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     if([connection originalRequest] == _request1){
-
+        
         _responseUserData = [[NSMutableData alloc] init];
     }
     else if([connection originalRequest] == _request2){
@@ -86,7 +115,7 @@
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     if([connection originalRequest] == _request1){
-
+        
         [_responseUserData appendData:data];
     }
     else if([connection originalRequest] == _request2){
@@ -98,7 +127,7 @@
 {
     NSLog(@"Failed: %@",[error localizedDescription]);
 }
-     
+
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     if([connection originalRequest] == _request1){

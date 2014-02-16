@@ -14,6 +14,8 @@
 @property (nonatomic,retain) NSString *token;
 //Contains normal User related info
 @property (nonatomic,retain) NSMutableDictionary *userData;
+@property (nonatomic,retain) NSMutableDictionary *userDataCleaned;
+
 //Contains 4 fields, {display_name, venmo id, NSURL to pic, UIImage of pic}
 @property (nonatomic,retain) NSMutableArray *friendData;
 //Img data
