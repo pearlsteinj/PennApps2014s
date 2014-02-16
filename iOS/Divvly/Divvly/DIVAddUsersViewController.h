@@ -13,5 +13,8 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong,nonatomic) NSMutableArray *friendsArray;
+@property (strong,nonatomic) NSMutableArray *finalFriendsArray;
+
+
 - (IBAction)refresh:(id)sender;
 @end
