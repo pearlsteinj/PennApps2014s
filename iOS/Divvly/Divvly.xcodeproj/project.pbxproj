@@ -28,6 +28,15 @@
 		037743E918B0C3AD0084559C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 037743E818B0C3AD0084559C /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		037743EF18B0C7010084559C /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 037743EE18B0C7010084559C /* libxml2.dylib */; };
 		037743F118B0DBD20084559C /* N_Ta814zbnb3AALZaCIO60I6mWZFZqo_m7HnNWnIljo.png in Resources */ = {isa = PBXBuildFile; fileRef = 037743F018B0DBD20084559C /* N_Ta814zbnb3AALZaCIO60I6mWZFZqo_m7HnNWnIljo.png */; };
+		037743FA18B0E0180084559C /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 037743F218B0E0180084559C /* button.png */; };
+		037743FB18B0E0180084559C /* login.html in Resources */ = {isa = PBXBuildFile; fileRef = 037743F318B0E0180084559C /* login.html */; };
+		037743FC18B0E0180084559C /* login.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 037743F418B0E0180084559C /* login.jpg */; };
+		037743FD18B0E0180084559C /* login2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 037743F518B0E0180084559C /* login2.jpg */; };
+		037743FE18B0E0180084559C /* step1.png in Resources */ = {isa = PBXBuildFile; fileRef = 037743F618B0E0180084559C /* step1.png */; };
+		037743FF18B0E0180084559C /* step2.png in Resources */ = {isa = PBXBuildFile; fileRef = 037743F718B0E0180084559C /* step2.png */; };
+		0377440018B0E0180084559C /* step3.png in Resources */ = {isa = PBXBuildFile; fileRef = 037743F818B0E0180084559C /* step3.png */; };
+		0377440118B0E0180084559C /* swipe.js in Sources */ = {isa = PBXBuildFile; fileRef = 037743F918B0E0180084559C /* swipe.js */; };
+		0377440318B0F0B00084559C /* person-plus-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0377440218B0F0B00084559C /* person-plus-icon.png */; };
 		0386429918AFDCF50080B6AA /* DIVSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0386429818AFDCF50080B6AA /* DIVSplitViewController.m */; };
 		038F453918AF73C200B2878F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 038F449C18AF73C200B2878F /* .gitignore */; };
 		038F453A18AF73C200B2878F /* liblept.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 038F453018AF73C200B2878F /* liblept.a */; };
@@ -68,9 +77,6 @@
 		03D1E57318AFCAA2005763E7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D1E57218AFCAA2005763E7 /* MobileCoreServices.framework */; };
 		03D1E57518AFCAC6005763E7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D1E57418AFCAC6005763E7 /* libz.dylib */; };
 		588E2BCE18AF5E8E00108480 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C94E9218AF5799007AFC0E /* SDWebImage.framework */; };
-		588E2D6118AF64DF00108480 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 588E2D5E18AF64DF00108480 /* button.png */; };
-		588E2D6218AF64DF00108480 /* login.html in Resources */ = {isa = PBXBuildFile; fileRef = 588E2D5F18AF64DF00108480 /* login.html */; };
-		588E2D6318AF64DF00108480 /* login.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 588E2D6018AF64DF00108480 /* login.jpg */; };
 		588E2D6618AF696F00108480 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 588E2D6518AF696F00108480 /* AVFoundation.framework */; };
 		588E2D6818AF7F4F00108480 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 588E2D6718AF7F4F00108480 /* tessdata */; };
 		588E2D6A18AF926900108480 /* image_sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 588E2D6918AF926900108480 /* image_sample.jpg */; };
@@ -120,6 +126,15 @@
 		037743EC18B0C5610084559C /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		037743EE18B0C7010084559C /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		037743F018B0DBD20084559C /* N_Ta814zbnb3AALZaCIO60I6mWZFZqo_m7HnNWnIljo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = N_Ta814zbnb3AALZaCIO60I6mWZFZqo_m7HnNWnIljo.png; sourceTree = "<group>"; };
+		037743F218B0E0180084559C /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
+		037743F318B0E0180084559C /* login.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = login.html; sourceTree = "<group>"; };
+		037743F418B0E0180084559C /* login.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = login.jpg; sourceTree = "<group>"; };
+		037743F518B0E0180084559C /* login2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = login2.jpg; sourceTree = "<group>"; };
+		037743F618B0E0180084559C /* step1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = step1.png; sourceTree = "<group>"; };
+		037743F718B0E0180084559C /* step2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = step2.png; sourceTree = "<group>"; };
+		037743F818B0E0180084559C /* step3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = step3.png; sourceTree = "<group>"; };
+		037743F918B0E0180084559C /* swipe.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = swipe.js; sourceTree = "<group>"; };
+		0377440218B0F0B00084559C /* person-plus-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "person-plus-icon.png"; sourceTree = "<group>"; };
 		0386429718AFDCF50080B6AA /* DIVSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIVSplitViewController.h; sourceTree = "<group>"; };
 		0386429818AFDCF50080B6AA /* DIVSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIVSplitViewController.m; sourceTree = "<group>"; };
 		038F449C18AF73C200B2878F /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -334,9 +349,6 @@
 		03D1E57018AFCA9B005763E7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		03D1E57218AFCAA2005763E7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		03D1E57418AFCAC6005763E7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		588E2D5E18AF64DF00108480 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button.png; path = ../button.png; sourceTree = "<group>"; };
-		588E2D5F18AF64DF00108480 /* login.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = login.html; path = ../login.html; sourceTree = "<group>"; };
-		588E2D6018AF64DF00108480 /* login.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = login.jpg; path = ../login.jpg; sourceTree = "<group>"; };
 		588E2D6518AF696F00108480 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		588E2D6718AF7F4F00108480 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = SOURCE_ROOT; };
 		588E2D6918AF926900108480 /* image_sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_sample.jpg; sourceTree = "<group>"; };
@@ -448,15 +460,21 @@
 		036E811C18AF05860041C37F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0377440218B0F0B00084559C /* person-plus-icon.png */,
+				037743F218B0E0180084559C /* button.png */,
+				037743F318B0E0180084559C /* login.html */,
+				037743F418B0E0180084559C /* login.jpg */,
+				037743F518B0E0180084559C /* login2.jpg */,
+				037743F618B0E0180084559C /* step1.png */,
+				037743F718B0E0180084559C /* step2.png */,
+				037743F818B0E0180084559C /* step3.png */,
+				037743F918B0E0180084559C /* swipe.js */,
 				03D164F918B0C28E009B60AF /* ASI */,
 				0357ED8318AFB9F6000B9C2A /* image.png */,
 				588E2D6D18AFA10D00108480 /* photo.PNG */,
 				588E2D6918AF926900108480 /* image_sample.jpg */,
 				588E2D6B18AF95B900108480 /* image_2.png */,
 				038F454218AF757800B2878F /* photo-capture.png */,
-				588E2D5E18AF64DF00108480 /* button.png */,
-				588E2D5F18AF64DF00108480 /* login.html */,
-				588E2D6018AF64DF00108480 /* login.jpg */,
 				036E811D18AF05860041C37F /* Divvly-Info.plist */,
 				036E811E18AF05860041C37F /* InfoPlist.strings */,
 				036E812118AF05860041C37F /* main.m */,
@@ -876,18 +894,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				038F453918AF73C200B2878F /* .gitignore in Resources */,
+				0377440318B0F0B00084559C /* person-plus-icon.png in Resources */,
+				037743FA18B0E0180084559C /* button.png in Resources */,
 				036E812E18AF05870041C37F /* Images.xcassets in Resources */,
 				588E2D6C18AF95B900108480 /* image_2.png in Resources */,
-				588E2D6318AF64DF00108480 /* login.jpg in Resources */,
-				588E2D6118AF64DF00108480 /* button.png in Resources */,
 				588E2D6E18AFA10D00108480 /* photo.PNG in Resources */,
 				038F453E18AF73C200B2878F /* LICENSE in Resources */,
+				037743FE18B0E0180084559C /* step1.png in Resources */,
+				037743FB18B0E0180084559C /* login.html in Resources */,
 				588E2D6818AF7F4F00108480 /* tessdata in Resources */,
+				037743FC18B0E0180084559C /* login.jpg in Resources */,
 				588E2D6A18AF926900108480 /* image_sample.jpg in Resources */,
-				588E2D6218AF64DF00108480 /* login.html in Resources */,
 				038F454318AF757800B2878F /* photo-capture.png in Resources */,
 				036E812018AF05860041C37F /* InfoPlist.strings in Resources */,
+				037743FD18B0E0180084559C /* login2.jpg in Resources */,
+				037743FF18B0E0180084559C /* step2.png in Resources */,
 				038F453C18AF73C200B2878F /* README.md in Resources */,
+				0377440018B0E0180084559C /* step3.png in Resources */,
 				037743F118B0DBD20084559C /* N_Ta814zbnb3AALZaCIO60I6mWZFZqo_m7HnNWnIljo.png in Resources */,
 				038F453F18AF73C200B2878F /* README.md in Resources */,
 				036E812918AF05860041C37F /* Main.storyboard in Resources */,
@@ -937,6 +960,7 @@
 				03D1655718B0C28F009B60AF /* ASICloudFilesContainerRequest.m in Sources */,
 				036E812618AF05860041C37F /* DIVAppDelegate.m in Sources */,
 				03D1655018B0C28F009B60AF /* ASIFormDataRequest.m in Sources */,
+				0377440118B0E0180084559C /* swipe.js in Sources */,
 				0320524F18AF3AB8009BB045 /* DIVLoginViewController.m in Sources */,
 				036E812218AF05860041C37F /* main.m in Sources */,
 				03D1655F18B0C28F009B60AF /* ASIS3ObjectRequest.m in Sources */,

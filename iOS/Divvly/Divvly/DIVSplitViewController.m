@@ -55,7 +55,7 @@
     for(id entry in _entries){
         totalCost += [entry[@"cost"] floatValue];
     }
-    [_price_label setTextColor:[UIColor greenColor]];
+    //[_price_label setTextColor:[UIColor greenColor]];
     [_price_label setFont:[UIFont fontWithName:@"Open-Sans" size:30.0f]];
     [_price_label setText:[NSString stringWithFormat:@"%.2f",totalCost]];
 }
@@ -139,7 +139,7 @@
         cost.textAlignment = UITextAlignmentRight;
         [cost setFont:[UIFont systemFontOfSize:14]];
         cost.backgroundColor = [UIColor clearColor];
-        [cost setTextColor:[UIColor greenColor]];
+        //[cost setTextColor:[UIColor greenColor]];
         [cell addSubview:cost];
         [img setImage:[_cellsAndImages objectForKey:str][@"image"]];
         img.clipsToBounds = YES;
@@ -173,7 +173,7 @@
         cost.text = [[[_entries objectAtIndex:[indexPath row]] objectForKey:@"cost"] stringValue];
         cost.textAlignment = UITextAlignmentRight;
         [cost setFont:[UIFont fontWithName:@"Open-Sans" size:35.0f]];
-        [cost setTextColor:[UIColor greenColor]];
+        //[cost setTextColor:[UIColor greenColor]];
         cost.backgroundColor = [UIColor clearColor];
         [cell addSubview:cost];
     }

@@ -52,7 +52,7 @@
 	// Do any additional setup after loading the view.
     _selectedFriends = [[NSMutableArray alloc]init];
     [self.navigationController.navigationBar setBarStyle:UIStatusBarStyleLightContent];
-    self.navigationItem.title = @"Add People";
+    //self.navigationItem.title = @"Add People";
     [[UINavigationBar appearance]setTintColor:[UIColor colorWithRed:52 green:73 blue:94 alpha:1]];
     [_activityIndicator startAnimating];
     _activityIndicator.hidesWhenStopped = YES;
@@ -94,8 +94,8 @@
         [name setText:first];
     for(id entry in _selectedFriends){
         if ([entry[@"name"]isEqualToString:person_name]) {
-            img.layer.borderColor = [UIColor greenColor].CGColor;
-            img.layer.borderWidth = 3.0f;
+            img.layer.borderColor = [UIColor colorWithRed:35.0f/255.0f green:164.0f/255.0f blue:85.0f/255.0f alpha:1.0].CGColor;
+            img.layer.borderWidth = 6.0f;
             break;
         }
     }

@@ -30,11 +30,22 @@
 - (void)viewDidLoad
 {
     
+    //self.navigationController.navigationBar.tintColor=[UIColor colorWithRed:46.0f green:64.0f blue:83.0f alpha:1.0];
+    //[self.navigationController.navigationBar setBackgroundColor: [UIColor colorWithRed:46.0f green:64.0f blue:83.0f alpha:1.0]];
+    
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:35.0f/255.0f green:164.0f/255.0f blue:85.0f/255.0f alpha:1.0]];
+    
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self login];
     
 }
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -46,12 +57,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
+}
+
 -(void)login{
     //Checks if user logged in previouly
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     [prefs synchronize];
     
-    
+    _webView.scrollView.scrollEnabled = NO;
     //if (![prefs objectForKey:@"token"] || [[prefs objectForKey:@"token"] isEqualToString:@""]){
         [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"login" ofType:@"html"]isDirectory:NO]]];
         _webView.delegate = self;

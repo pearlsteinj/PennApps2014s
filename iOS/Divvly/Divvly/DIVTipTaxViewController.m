@@ -36,7 +36,7 @@
         totalAll += [dict[@"cost"] floatValue];
     }
     
-    _totalCost.text = [@"$" stringByAppendingString:[NSString stringWithFormat:@"%f", totalAll]];
+    _totalCost.text = [@"$" stringByAppendingString:[NSString stringWithFormat:@"%0.2f", totalAll]];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:Nil action:@selector(resignFirstResponder)];
     [self.view addGestureRecognizer:tap];
@@ -131,7 +131,7 @@ return cell;
     [self updateCells:additions];
     total = total + tax + extra + tip;
     
-    _totalCost.text = [@"$" stringByAppendingString:[NSString stringWithFormat:@"%.2f", total]];
+    _totalCost.text = [@"$" stringByAppendingString:[NSString stringWithFormat:@"%0.2f", total]];
     
     return NO;
     
